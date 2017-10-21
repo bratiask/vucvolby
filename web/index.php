@@ -4,6 +4,8 @@ use Doctrine\DBAL\Statement;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 require_once __DIR__.'/../vendor/autoload.php';
 
@@ -23,6 +25,15 @@ function getTable()
 {
 
 }
+
+$app->after(function (Request $request, Response $response) {
+    $response->headers->set(
+        'Content-Type',
+        $response->headers->get('Content-Type') . '; charset=UTF-8'
+    );
+
+    return $response;
+});
 
 $app->get('/', function () use ($container, $app) {
     /** @var Statement $statement */

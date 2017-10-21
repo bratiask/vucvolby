@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+    <imports>
+        <import resource="parameters.xml" />
+    </imports>
+
+    <services>
+        <service id="connection.configuration" class="\Doctrine\DBAL\Configuration">
+        </service>
+
+        <service id="connection" class="">
+            <factory class="\Doctrine\DBAL\DriverManager" method="getConnection" />
+            <argument>%connection.params%</argument>
+            <argument type="service" id="connection.configuration" />
+        </service>
+
+        <service id="command.importVuc2013" class="\bratiask\VucVolby\Command\ImportVuc2013Command">
+            <tag name="command" />
+        </service>
+
+        <service id="command.importVuc2017" class="\bratiask\VucVolby\Command\ImportVuc2017Command">
+            <tag name="command" />
+        </service>
+    </services>
+</container>

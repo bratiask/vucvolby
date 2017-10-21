@@ -31,7 +31,7 @@ $app->after(function (Request $request, Response $response) {
         'Content-Type',
         'html/text; charset=UTF-8'
     );
-echo 'asd';die;
+
     return $response;
 });
 

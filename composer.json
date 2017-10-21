@@ -4,7 +4,9 @@
         "doctrine/dbal": "^2.5",
         "symfony/dependency-injection": "^3.3",
         "symfony/config": "^3.3",
-        "league/csv": "^8.0"
+        "league/csv": "^8.0",
+        "silex/silex": "~2.0",
+        "twig/twig": "^1.35"
     },
     "autoload": {
         "psr-4": {

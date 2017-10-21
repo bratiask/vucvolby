@@ -29,7 +29,7 @@ function getTable()
 $app->after(function (Request $request, Response $response) {
     $response->headers->set(
         'Content-Type',
-        'html/text; charset=UTF-8'
+        'text/html; charset=UTF-8'
     );
 
     return $response;

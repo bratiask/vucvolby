@@ -29,9 +29,9 @@ function getTable()
 $app->after(function (Request $request, Response $response) {
     $response->headers->set(
         'Content-Type',
-        $response->headers->get('Content-Type') . '; charset=UTF-8'
+        'html/text; charset=UTF-8'
     );
-
+echo 'asd';die;
     return $response;
 });
 

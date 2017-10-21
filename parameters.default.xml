@@ -9,6 +9,7 @@
             <parameter key="password" />
             <parameter key="host">localhost</parameter>
             <parameter key="driver">pdo_mysql</parameter>
+            <parameter key="charset">utf8</parameter>
         </parameter>
     </parameters>
 </container>

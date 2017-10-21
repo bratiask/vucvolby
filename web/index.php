@@ -21,20 +21,6 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../Resources/views',
 ));
 
-function getTable()
-{
-
-}
-
-$app->after(function (Request $request, Response $response) {
-    $response->headers->set(
-        'Content-Type',
-        'text/html; charset=UTF-8'
-    );
-
-    return $response;
-});
-
 $app->get('/', function () use ($container, $app) {
     /** @var Statement $statement */
     $statement = $container->get('connection')->prepare('   

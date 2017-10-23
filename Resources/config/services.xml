@@ -16,11 +16,31 @@
             <argument type="service" id="connection.configuration" />
         </service>
 
+        <service id="command.ImportNrsr2012" class="\bratiask\VucVolby\Command\ImportNrsr2012Command">
+            <tag name="command" />
+        </service>
+
+        <service id="command.importVuc2005" class="\bratiask\VucVolby\Command\ImportVuc2005Command">
+            <tag name="command" />
+        </service>
+
+        <service id="command.importVuc2009" class="\bratiask\VucVolby\Command\ImportVuc2009Command">
+            <tag name="command" />
+        </service>
+
         <service id="command.importVuc2013" class="\bratiask\VucVolby\Command\ImportVuc2013Command">
             <tag name="command" />
         </service>
 
+        <service id="command.importVuc2013Meta" class="\bratiask\VucVolby\Command\ImportVuc2013MetaCommand">
+            <tag name="command" />
+        </service>
+
         <service id="command.importVuc2017" class="\bratiask\VucVolby\Command\ImportVuc2017Command">
+            <tag name="command" />
+        </service>
+
+        <service id="command.importVuc2017LsnsCounts" class="\bratiask\VucVolby\Command\ImportVuc2017LsnsCountsCommand">
             <tag name="command" />
         </service>
     </services>

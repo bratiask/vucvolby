@@ -20,11 +20,11 @@ class ImportNrsr2012Command extends ContainerAwareCommand
         $this->getConnection()->prepare("TRUNCATE TABLE votes_2012_parliament")->execute();
 
         $this->processCsv('nrsr_2012.csv', function($municipality_id, $row) {
-            $this->insertRecord($municipality_id, $this->n($row[2]), $this->n($row[12]));
+            $this->insertRecord($municipality_id, $this->n($row[2]), $this->n($row[12]), $this->n($row[6]), $this->n($row[13]), $this->n($row[16]));
         });
     }
 
-    private function insertRecord($municipality_id, $total_nr_of_valid, $lsns_nr_of_valid)
+    private function insertRecord($municipality_id, $total_nr_of_valid, $lsns_nr_of_valid, $sns_nr_of_valid, $smer_nr_of_valid, $kss_nr_of_valid)
     {
         $statement = $this->getConnection()->prepare("
             INSERT INTO 
@@ -32,12 +32,18 @@ class ImportNrsr2012Command extends ContainerAwareCommand
             VALUES(
                 :municipality_id,
                 :total_nr_of_valid,
-                :lsns_nr_of_valid
+                :lsns_nr_of_valid,
+                :sns_nr_of_valid,
+                :smer_nr_of_valid,
+                :kss_nr_of_valid
             )
         ");
         $statement->bindValue(':municipality_id', $municipality_id);
         $statement->bindValue(':total_nr_of_valid', $total_nr_of_valid);
         $statement->bindValue(':lsns_nr_of_valid', $lsns_nr_of_valid);
+        $statement->bindValue(':sns_nr_of_valid', $sns_nr_of_valid);
+        $statement->bindValue(':smer_nr_of_valid', $smer_nr_of_valid);
+        $statement->bindValue(':kss_nr_of_valid', $kss_nr_of_valid);
         $statement->execute();
     }
 

@@ -1,3 +1,4 @@
+{%- set ASSETS_VERSION = 0.01 -%}
 <!DOCTYPE html>
 <html lang="sk" dir="ltr">
 <head>
@@ -6,62 +7,15 @@
 
     <title>Voľby do VÚC 2017</title>
 
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-
-    <style>
-        * {
-            font-family: 'Roboto', sans-serif;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        thead td {
-            font-size: 14px;
-        }
-
-        td, th {
-            padding: 10px;
-        }
-
-        th {
-            text-align: left;
-            font-size: 20px;
-        }
-
-        tr.region th {
-            padding-top: 60px;
-        }
-
-        tr:nth-child(even) td {
-            background-color: #ededed;
-        }
-
-        .municipality-names {
-            font-size: 12px;
-            width: 33%;
-        }
-
-        tr.warning td {
-            background-color: #b2eea8;
-        }
-
-        tr:nth-child(even).warning td {
-            background-color: #a2d697;
-        }
-
-        tr.total th,
-        tr.total td {
-            background-color: white;
-            border-bottom: 1px solid black;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto+Slab&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ ASSETS_VERSION }}">
 </head>
 
 <body>
 {% block content %}
 {% endblock %}
+
+<script src="/js/main.js?v={{ ASSETS_VERSION }}"></script>
+
 </body>
 </html>

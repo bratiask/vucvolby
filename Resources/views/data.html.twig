@@ -1,0 +1,62 @@
+{% extends 'layouts/layout.html.twig' %}
+
+{% block content %}
+    <table>
+        <thead>
+            <tr>
+                <td></td>
+                <td>ĽSNS vo voľbách v roku 2017<br>predpoveď / kandidáti</td>
+                <td>Min - max počet hlasov poslancom<br>vo VÚC voľbách v roku 2013</td>
+                <td>Počet hlasov pre ĽSNS<br>v NRSR voľbách v roku 2016</td>
+            </tr>
+        </thead>
+    {% set region_name = '' %}
+    {% set subregion_lsns_count = 0 %}
+    {% set subregion_total_count = 0 %}
+    {% set global_lsns_count = 0 %}
+    {% set global_total_count = 0 %}
+    {% for row in table %}
+        {% if region_name != row.region_name %}
+            {% if region_name != '' %}
+                <tr class="total">
+                    <th>{{ region_name }}</th>
+                    <td colspan="5">{{ subregion_lsns_count }} / {{ subregion_total_count }}</td>
+                </tr>
+            {% endif %}
+            {% set region_name = row.region_name %}
+            {% set global_lsns_count = global_lsns_count + subregion_lsns_count %}
+            {% set global_total_count = global_total_count + subregion_total_count %}
+            {% set subregion_lsns_count = 0 %}
+            {% set subregion_total_count = 0 %}
+            <tr class="region">
+                <th>{{ row.region_name }}</th>
+            </tr>
+        {% endif %}
+
+        {% set lsns_count = row.lsns_candidates < row.lsns_prediction ? (row.lsns_candidates is empty ? 0 : row.lsns_candidates) : row.lsns_prediction %}
+        {% set subregion_lsns_count = subregion_lsns_count + lsns_count %}
+        {% set subregion_total_count = subregion_total_count + (row.lsns_candidates is empty ? 0 : row.lsns_candidates) %}
+
+        <tr {% if row.lsns_candidates > 0 and row.lsns_prediction > 0 %}class="warning"{% endif %}>
+            <td>{{ row.subregion_name }}</td>
+            <td>
+                <span class="">
+                    {{ lsns_count }}
+                </span>
+                z {{ row.lsns_candidates is empty ? 0 : row.lsns_candidates }}</td>
+            <td>{{ row.min_votes }} - {{ row.max_votes }}</td>
+            <td>{{ row.lsns_votes }}</td>
+            <td></td>
+            <td class="municipality-names">{{ row.municipality_names }}</td>
+        </tr>
+    {% endfor %}
+        <tr class="total">
+            <th>{{ region_name }}</th>
+            <td colspan="5">{{ subregion_lsns_count }} / {{ subregion_total_count }}</td>
+        </tr>
+        <tr class="total">
+            <th>Slovensko</th>
+            <td colspan="5">{{ global_lsns_count }} / {{ global_total_count }}</td>
+        </tr>
+    </table>
+{% endblock %}

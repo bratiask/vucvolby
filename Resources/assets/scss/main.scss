@@ -1,0 +1,75 @@
+@import "../../../bower_components/bootstrap/scss/bootstrap";
+
+@import "colors";
+@import "sections/header";
+@import "sections/magian";
+@import "sections/parliament";
+
+
+.s {
+  .c {
+    @extend .container-fluid !optional;
+
+    margin: 0 auto;
+    max-width: 1564px;
+  }
+}
+
+* {
+  font-family: 'Roboto Slab', serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+h1, h2 {
+  font-family: 'Alfa Slab One', cursive;
+  font-weight: normal;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead td {
+  font-size: 14px;
+}
+
+td, th {
+  padding: 10px;
+}
+
+th {
+  text-align: left;
+  font-size: 20px;
+}
+
+tr.region th {
+  padding-top: 60px;
+}
+
+tr:nth-child(even) td {
+  background-color: #ededed;
+}
+
+.municipality-names {
+  font-size: 12px;
+  width: 33%;
+}
+
+tr.warning td {
+  background-color: #b2eea8;
+}
+
+tr:nth-child(even).warning td {
+  background-color: #a2d697;
+}
+
+tr.total th,
+tr.total td {
+  background-color: white;
+  border-bottom: 1px solid black;
+}

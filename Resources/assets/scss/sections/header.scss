@@ -1,0 +1,56 @@
+.s-header {
+  background-color: $puke-green;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  text-align: center;
+  color: $darkest-shit;
+
+  h1 {
+    font-size: 90px;
+    line-height: 1.25;
+    margin: 0;
+    padding: 0;
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  p {
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 1.5;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .image {
+      text-align: center;
+      overflow: hidden;
+
+      .kgalikm {
+        display: inline-block;
+        position: relative;
+        z-index: 20;
+        width: 75%;
+        margin-bottom: -5%;
+      }
+
+      .kgalik {
+        display: block;
+        position: absolute;
+        width: 40%;
+
+        opacity: 0.75;
+        z-index: 10;
+        bottom: 0;
+
+        &:last-of-type {
+          right: 0;
+        }
+      }
+    }
+  }
+}

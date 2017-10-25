@@ -22,6 +22,10 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
 ));
 
 $app->get('/', function () use ($container, $app) {
+    return $app['twig']->render('index.html.twig', array(
+    ));
+});
+$app->get('/data', function () use ($container, $app) {
     /** @var Statement $statement */
     $statement = $container->get('connection')->prepare('   
         SELECT
@@ -61,7 +65,7 @@ $app->get('/', function () use ($container, $app) {
 
     $statement->execute();
 
-    return $app['twig']->render('index.html.twig', array(
+    return $app['twig']->render('data.html.twig', array(
         'table' => $statement->fetchAll(),
     ));
 });

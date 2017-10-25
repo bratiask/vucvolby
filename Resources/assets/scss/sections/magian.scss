@@ -1,0 +1,37 @@
+.s-magian {
+  background-color: $light-shit;
+  padding-top: 100px;
+  padding-bottom: 130px;
+  text-align: center;
+  color: $white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  h2 {
+    font-size: 60px;
+    line-height: 1.25;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 25px;
+  }
+
+  p {
+    color: #908975;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.5;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+
+    .image {
+      .kgalikm {
+        width: 90%;
+      }
+    }
+  }
+}

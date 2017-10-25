@@ -30,7 +30,7 @@ class ImportVuc2005Command extends ContainerAwareCommand
 
         $store->last_party = '';
 
-        $this->processCsv('vuc-2009-neuspesni-kandidati.csv', function($vuc_region_id, $vuc_subregion_name, $row) use ($store) {
+        $this->processCsv('vuc-2005-neuspesni-kandidati.csv', function($vuc_region_id, $vuc_subregion_name, $row) use ($store) {
             $party = trim($row[1]);
             $party = empty($party) ? $store->last_party : $party;
             $this->insertPerson($vuc_region_id, $vuc_subregion_name, trim($row[0]), $party, trim(str_replace(' ', '', $row[2])), false);

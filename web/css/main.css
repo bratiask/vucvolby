@@ -6188,8 +6188,8 @@ a.text-dark:focus, a.text-dark:hover {
 
 .s-magian {
   background-color: #453f2f;
-  padding-top: 100px;
-  padding-bottom: 130px;
+  padding-top: 80px;
+  padding-bottom: 100px;
   text-align: center;
   color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -6215,8 +6215,8 @@ a.text-dark:focus, a.text-dark:hover {
 
 .s-parliament {
   background-color: #3b3628;
-  padding-top: 100px;
-  padding-bottom: 130px;
+  padding-top: 140px;
+  padding-bottom: 100px;
   text-align: center;
   color: #fff;
   -webkit-font-smoothing: antialiased;
@@ -6226,20 +6226,60 @@ a.text-dark:focus, a.text-dark:hover {
     line-height: 1.25;
     margin: 0;
     padding: 0;
-    padding-top: 80px;
+    padding-top: 100px;
     padding-bottom: 25px; }
   .s-parliament p {
     color: #908975;
     font-weight: normal;
     font-size: 24px;
     line-height: 1.5; }
-  .s-parliament .image-wrapper {
-    position: relative;
-    width: 100%;
-    max-width: 600px;
-    margin: 0 auto; }
-    .s-parliament .image-wrapper .image .kgalikm {
-      width: 90%; }
+
+.s-vuc {
+  background-color: #2f2b20;
+  padding-top: 120px;
+  padding-bottom: 100px;
+  text-align: center;
+  color: #fff;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+  .s-vuc h2 {
+    font-size: 60px;
+    line-height: 1.25;
+    margin: 0;
+    padding: 0;
+    padding-top: 80px;
+    padding-bottom: 25px; }
+  .s-vuc p {
+    color: #908975;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 1.5; }
+  .s-vuc .platoon {
+    padding-bottom: 30px; }
+    @media (max-width: 575px) {
+      .s-vuc .platoon {
+        padding-bottom: 15px; } }
+    @media (max-width: 400px) {
+      .s-vuc .platoon {
+        padding-bottom: 0; } }
+    @media (min-width: 1200px) {
+      .s-vuc .platoon .col {
+        padding: 0 5px; } }
+  @media (max-width: 575px) {
+    .s-vuc .kgalikm {
+      width: 90%; } }
+  @media (min-width: 768px) {
+    .s-vuc .kgalikm {
+      width: 90%; } }
+  @media (min-width: 992px) {
+    .s-vuc .kgalikm {
+      width: 80%; } }
+  @media (min-width: 1200px) {
+    .s-vuc .kgalikm {
+      width: 70%; } }
+  @media (max-width: 400px) {
+    .s-vuc .kgalikm {
+      margin-top: 10px; } }
 
 .s .c {
   margin: 0 auto;

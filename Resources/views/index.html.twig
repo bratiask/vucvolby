@@ -1,5 +1,26 @@
 {% extends 'layouts/layout.html.twig' %}
 
+{% macro platoon() %}
+    <div class="platoon">
+        <div class="row no-gutters">
+            {% for i in range(1, 6) %}
+                <div class="col">
+                    <img src="/images/kgalik.svg">
+                </div>
+            {% endfor %}
+        </div>
+        <div class="row no-gutters">
+            {% for i in range(1, 6) %}
+                <div class="col">
+                    <img src="/images/kgalik.svg">
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endmacro %}
+
+    {% import _self as m %}
+
 {% block content %}
     <header class="s s-header">
         <div class="c">
@@ -37,18 +58,18 @@
             <div class="d-md-block d-none">
                 <div class="row">
                     <div class="col">
-                        <img src="/images/kgalikm.svg" class="kgalikm">
+                        <img src="/images/kgalikm.svg">
                     </div>
                     {% for i in range(1, 6) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 7) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
@@ -56,25 +77,25 @@
             <div class="d-md-none d-sm-block d-none">
                 <div class="row">
                     <div class="col">
-                        <img src="/images/kgalikm.svg" class="kgalikm">
+                        <img src="/images/kgalikm.svg">
                     </div>
                     {% for i in range(1, 4) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 5) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 4) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                     <div class="col">
@@ -85,39 +106,39 @@
             <div class="d-sm-none d-block">
                 <div class="row">
                     <div class="col">
-                        <img src="/images/kgalikm.svg" class="kgalikm">
+                        <img src="/images/kgalikm.svg">
                     </div>
                     {% for i in range(1, 2) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 3) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 3) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 3) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                 </div>
                 <div class="row">
                     {% for i in range(1, 2) %}
                         <div class="col">
-                            <img src="/images/kgalik.svg" class="kgalik">
+                            <img src="/images/kgalik.svg">
                         </div>
                     {% endfor %}
                     <div class="col">
@@ -129,6 +150,154 @@
             <h2>14 Kgálikov</h2>
             <p>
                 bolo zvolených do parlamentu v roku 2016. Hlasovalo za nich viac ako 200.000 voličov.
+            </p>
+        </div>
+    </section>
+
+    <section class="s s-vuc">
+        <div class="c">
+            <div class="d-lg-block d-none">
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        <img src="/images/kgalikm.svg" class="kgalikm">
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+            </div>
+            <div class="d-lg-none d-block">
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        <img src="/images/kgalikm.svg" class="kgalikm">
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                    <div class="col">
+                        {{ m.platoon() }}
+                        {{ m.platoon() }}
+                    </div>
+                </div>
+            </div>
+
+            <h2>337 Kgálikov</h2>
+            <p>
+                kandiduje za župného poslanca (VÚC) v roku 2017.
             </p>
         </div>
     </section>

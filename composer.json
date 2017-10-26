@@ -6,7 +6,8 @@
         "symfony/config": "^3.3",
         "league/csv": "^8.0",
         "silex/silex": "~2.0",
-        "twig/twig": "^1.35"
+        "twig/twig": "^1.35",
+        "nette/utils": "^2.4"
     },
     "autoload": {
         "psr-4": {

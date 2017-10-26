@@ -1884,6 +1884,10 @@ image-size@~0.5.0:
   version "0.5.5"
   resolved "https://registry.yarnpkg.com/image-size/-/image-size-0.5.5.tgz#09dfd4ab9d20e29eb1c3e80b8990378df9e3cb9c"
 
+imageoptim-cli@^1.15.1:
+  version "1.15.1"
+  resolved "https://registry.yarnpkg.com/imageoptim-cli/-/imageoptim-cli-1.15.1.tgz#8a813c4962c3c6bc7046e0df6f68a23a57ad31c8"
+
 immutable@3.8.1:
   version "3.8.1"
   resolved "https://registry.yarnpkg.com/immutable/-/immutable-3.8.1.tgz#200807f11ab0f72710ea485542de088075f68cd2"

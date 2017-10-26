@@ -31,7 +31,7 @@ const FONT_FILES = [
 ];
 
 const IMAGE_FILES = [
-    ASSETS_DIRECTORY + 'images/*.{svg,jpg,jpeg,gif,png}'
+    ASSETS_DIRECTORY + 'images/**/*.{svg,jpg,jpeg,gif,png}'
 ];
 
 const TEMP_FILES = [

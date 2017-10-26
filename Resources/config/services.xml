@@ -43,5 +43,9 @@
         <service id="command.importVuc2017LsnsCounts" class="\bratiask\VucVolby\Command\ImportVuc2017LsnsCountsCommand">
             <tag name="command" />
         </service>
+
+        <service id="command.GenerateFbImages" class="\bratiask\VucVolby\Command\GenerateFbImagesCommand">
+            <tag name="command" />
+        </service>
     </services>
 </container>

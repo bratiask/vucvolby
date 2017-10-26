@@ -27,6 +27,7 @@
     "gulp-uglify": "^1.4.1",
     "gulp-util": "^3.0.6",
     "gulp-watch": "^4.3.5",
+    "imageoptim-cli": "^1.15.1",
     "main-bower-files": "^2.9.0",
     "masonry-layout": "^4.2.0",
     "merge-stream": "^1.0.0",

@@ -1,6 +1,9 @@
 @import "../../../bower_components/bootstrap/scss/bootstrap";
 
 @import "colors";
+
+@import "sections/alert";
+@import "sections/form";
 @import "sections/header";
 @import "sections/magian";
 @import "sections/parliament";

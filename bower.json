@@ -13,6 +13,7 @@
     "tests"
   ],
   "dependencies": {
-    "bootstrap": "v4.0.0-beta"
+    "bootstrap": "v4.0.0-beta",
+    "select2": "^4.0.5"
   }
 }

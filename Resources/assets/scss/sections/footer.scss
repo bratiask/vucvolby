@@ -1,0 +1,25 @@
+.s-footer {
+  background-color: $white;
+  padding-top: 120px;
+  padding-bottom: 150px;
+  text-align: center;
+  color: $dark-shit;
+
+  a.fb-share {
+    font-family: Verdana, serif;
+    display: inline-block;
+    border-radius: 5px;
+    background-color: $facebook-blue;
+    color: $white;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    font-size: 42px;
+    font-weight: normal;
+
+    &:hover {
+      text-decoration: none;
+      background-color: lighten($facebook-blue, 10);
+    }
+  }
+}

@@ -39,6 +39,7 @@ const TEMP_FILES = [
 ];
 
 const SCSS_FILES = [
+    BOWER_DIRECTORY + 'select2/src/scss/core.scss',
     ASSETS_DIRECTORY + 'scss/main.scss'
 ];
 
@@ -58,10 +59,8 @@ const JS_FILES = {
         BOWER_DIRECTORY + 'jquery/dist/jquery.js',
         BOWER_DIRECTORY + 'popper.js/dist/umd/popper.js',
         BOWER_DIRECTORY + 'bootstrap/dist/js/bootstrap.js',
+        BOWER_DIRECTORY + 'select2/dist/js/select2.js',
         ASSETS_DIRECTORY + 'js/**/*.js'
-    ],
-    'highlight.js': [
-        BOWER_DIRECTORY + 'highlightjs/highlight.pack.min.js'
     ]
 };
 

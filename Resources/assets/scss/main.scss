@@ -1,13 +1,19 @@
 @import "../../../bower_components/bootstrap/scss/bootstrap";
+@import "../../../bower_components/select2/src/scss/core";
 
 @import "colors";
 
-@import "sections/alert";
+@import "sections/call-to-action";
 @import "sections/form";
+@import "sections/footer";
+@import "sections/gogogo";
 @import "sections/header";
 @import "sections/magian";
+@import "sections/municipality";
 @import "sections/parliament";
 @import "sections/vuc";
+
+@import "select2/theme/kgalici/layout";
 
 
 .s {
@@ -28,7 +34,7 @@ body {
   margin: 0;
 }
 
-h1, h2 {
+h1, h2, h3 {
   font-family: 'Alfa Slab One', cursive;
   font-weight: normal;
 }

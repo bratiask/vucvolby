@@ -1,0 +1,349 @@
+.s-municipality {
+  background-color: $light-red;
+  padding-top: 110px;
+  padding-bottom: 130px;
+  text-align: center;
+
+  h2 {
+    color: $bloody-red;
+    font-size: 60px;
+    line-height: 1.25;
+    margin: 0;
+    padding: 0;
+    padding-bottom: 80px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h3 {
+    font-size: 36px;
+    line-height: 1.25;
+    padding-top: 40px;
+    padding-bottom: 20px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  p {
+    color: $light-shit;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 1.5;
+
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .kgalici {
+    background-color: $darkest-shit;
+    border-radius: 50%;
+  }
+
+  .image-wrapper {
+    width: 100%;
+    max-width: 250px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+
+    .candidates-wrapper {
+      position: relative;
+      padding-top: 100%;
+
+      img {
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        /* 2 */
+        &.can-2-1-1 {
+          width: 50%;
+          top: 25%;
+          left: 0;
+        }
+
+        &.can-2-1-2 {
+          width: 50%;
+          top: 25%;
+          left: 50%;
+        }
+
+        /* 3 - 4 */
+        &.can-2-2-1 {
+          width: 50%;
+          top: 0;
+          left: 0;
+        }
+
+        &.can-2-2-2 {
+          width: 50%;
+          top: 0;
+          left: 50%;
+        }
+
+        &.can-2-2-3 {
+          width: 50%;
+          top: 50%;
+          left: 0;
+        }
+
+        &.can-2-2-4 {
+          width: 50%;
+          top: 50%;
+          left: 50%;
+        }
+
+        /* 5 - 6 */
+
+        &.can-3-2-1 {
+          width: 33.333%;
+          top: 16.666%;
+          left: 0;
+        }
+
+        &.can-3-2-2 {
+          width: 33.333%;
+          top: 16.666%;
+          left: 33%;
+        }
+
+        &.can-3-2-3 {
+          width: 33.333%;
+          top: 16.666%;
+          left: 66.666%;
+        }
+
+        &.can-3-2-4 {
+          width: 33.333%;
+          top: 50%;
+          left: 0;
+        }
+
+        &.can-3-2-5 {
+          width: 33.333%;
+          top: 50%;
+          left: 33.333%;
+        }
+
+        &.can-3-2-6 {
+          width: 33.333%;
+          top: 50%;
+          left: 66.666%;
+        }
+
+        /* 7 - 9 */
+
+        &.can-3-3-1 {
+          width: 33.333%;
+          top: 0;
+          left: 0;
+        }
+
+        &.can-3-3-2 {
+          width: 33.333%;
+          top: 0;
+          left: 33%;
+        }
+
+        &.can-3-3-3 {
+          width: 33.333%;
+          top: 0;
+          left: 66.666%;
+        }
+
+        &.can-3-3-4 {
+          width: 33.333%;
+          top: 33.333%;
+          left: 0;
+        }
+
+        &.can-3-3-5 {
+          width: 33.333%;
+          top: 33.333%;
+          left: 33%;
+        }
+
+        &.can-3-3-6 {
+          width: 33.333%;
+          top: 33.333%;
+          left: 66.666%;
+        }
+
+        &.can-3-3-7 {
+          width: 33.333%;
+          top: 66.666%;
+          left: 0;
+        }
+
+        &.can-3-3-8 {
+          width: 33.333%;
+          top: 66.666%;
+          left: 33%;
+        }
+
+        &.can-3-3-9 {
+          width: 33.333%;
+          top: 66.666%;
+          left: 66.666%;
+        }
+
+        /* 10 - 12 */
+
+        &.can-4-3-1 {
+          width: 25%;
+          top: 12.5%;
+          left: 0;
+        }
+
+        &.can-4-3-2 {
+          width: 25%;
+          top: 12.5%;
+          left: 25%;
+        }
+
+        &.can-4-3-3 {
+          width: 25%;
+          top: 12.5%;
+          left: 50%;
+        }
+
+        &.can-4-3-4 {
+          width: 25%;
+          top: 12.5%;
+          left: 75%;
+        }
+
+        &.can-4-3-5 {
+          width: 25%;
+          top: 37.5%;
+          left: 0;
+        }
+
+        &.can-4-3-6 {
+          width: 25%;
+          top: 37.5%;
+          left: 25%;
+        }
+
+        &.can-4-3-7 {
+          width: 25%;
+          top: 37.5%;
+          left: 50%;
+        }
+
+        &.can-4-3-8 {
+          width: 25%;
+          top: 37.5%;
+          left: 75%;
+        }
+
+        &.can-4-3-9 {
+          width: 25%;
+          top: 62.5%;
+          left: 0;
+        }
+
+        &.can-4-3-10 {
+          width: 25%;
+          top: 62.5%;
+          left: 25%;
+        }
+
+        &.can-4-3-11 {
+          width: 25%;
+          top: 62.5%;
+          left: 50%;
+        }
+
+        &.can-4-3-12 {
+          width: 25%;
+          top: 62.5%;
+          left: 75%;
+        }
+
+        /* 13 */
+
+        &.can-4-4-1 {
+          width: 25%;
+          top: 0;
+          left: 0;
+        }
+
+        &.can-4-4-2 {
+          width: 25%;
+          top: 0;
+          left: 25%;
+        }
+
+        &.can-4-4-3 {
+          width: 25%;
+          top: 0;
+          left: 50%;
+        }
+
+        &.can-4-4-4 {
+          width: 25%;
+          top: 0;
+          left: 75%;
+        }
+
+        &.can-4-4-5 {
+          width: 25%;
+          top: 25%;
+          left: 0;
+        }
+
+        &.can-4-4-6 {
+          width: 25%;
+          top: 25%;
+          left: 25%;
+        }
+
+        &.can-4-4-7 {
+          width: 25%;
+          top: 25%;
+          left: 50%;
+        }
+
+        &.can-4-4-8 {
+          width: 25%;
+          top: 25%;
+          left: 75%;
+        }
+
+        &.can-4-4-9 {
+          width: 25%;
+          top: 50%;
+          left: 0;
+        }
+
+        &.can-4-4-10 {
+          width: 25%;
+          top: 50%;
+          left: 25%;
+        }
+
+        &.can-4-4-11 {
+          width: 25%;
+          top: 50%;
+          left: 50%;
+        }
+
+        &.can-4-4-12 {
+          width: 25%;
+          top: 50%;
+          left: 75%;
+        }
+
+        &.can-4-4-13 {
+          width: 25%;
+          top: 75%;
+          left: 0;
+        }
+      }
+    }
+  }
+}

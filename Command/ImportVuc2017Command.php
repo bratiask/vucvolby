@@ -72,16 +72,16 @@ class ImportVuc2017Command extends ContainerAwareCommand
             }
 
             $vuc_region_id = $this->findRegionIdByName($first_column);
-            $vuc_subregion_id = $this->findSubregionIdByName($second_column, $vuc_region_id);
+            $vuc_subregion_id = $this->findSubregion2017IdByName($second_column, $vuc_region_id);
 
             if (!empty($vuc_subregion_id))
             {
-                $municipality_id = $this->findMunicipalityIdByNameAndSubregionId($third_column, $vuc_subregion_id);
+                $municipality_id = $this->findMunicipality2017IdByNameAndSubregion2017Id($third_column, $vuc_subregion_id);
             }
 
             if (empty($municipality_id))
             {
-                list($municipality_id, $vuc_subregion_id) = $this->findMunicipalityAndSubregionIdIdByMunicipalityNameAndRegionId($third_column, $vuc_region_id);
+                list($municipality_id, $vuc_subregion_id) = $this->findMunicipality2017AndSubregion2017IdIdByMunicipality2017NameAndRegionId($third_column, $vuc_region_id);
 
                 if (empty($vuc_subregion_id))
                 {

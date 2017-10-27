@@ -2,7 +2,6 @@
 <?php
 
 require __DIR__.'/vendor/autoload.php';
-//require __DIR__.'/commands/EntityCommand.php';
 
 use bratiask\VucVolby\Command\ContainerAwareCommand;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -16,6 +15,11 @@ $loader->load('Resources/config/services.xml');
 use Symfony\Component\Console\Application;
 
 $application = new Application();
+
+$loader = new Twig_Loader_Filesystem(__DIR__.'/Resources/views');
+$twig = new Twig_Environment($loader, array());
+
+$container->set('twig', $twig);
 
 foreach ($container->findTaggedServiceIds('command') as $command_service_id => $dummy)
 {

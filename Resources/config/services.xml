@@ -47,5 +47,13 @@
         <service id="command.GenerateFbImages" class="\bratiask\VucVolby\Command\GenerateFbImagesCommand">
             <tag name="command" />
         </service>
+
+        <service id="command.GenerateMunicipalityContent" class="\bratiask\VucVolby\Command\GenerateMunicipalityContentCommand">
+            <tag name="command" />
+        </service>
+
+        <service id="command.ImportMunicipalities2017" class="\bratiask\VucVolby\Command\ImportMunicipalities2017Command">
+            <tag name="command" />
+        </service>
     </services>
 </container>

@@ -1,9 +1,11 @@
 <?php
 
+use bratiask\VucVolby\Command\GenerateMunicipalityContentCommand;
 use Doctrine\DBAL\Statement;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Loader\XmlFileLoader;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -25,6 +27,39 @@ $app->get('/', function () use ($container, $app) {
     return $app['twig']->render('index.html.twig', array(
     ));
 });
+
+$app->get('/m/{municipality_id}.html', function ($municipality_id) use ($container, $app) {
+    /** @var GenerateMunicipalityContentCommand $command */
+    $command = $container->get('command.GenerateMunicipalityContent');
+    $command->setContainer($container);
+    $command->setTwigEnvironment($app['twig']);
+
+    return $command->getHtml($municipality_id);
+});
+
+$app->get('/municipalities.json', function () use ($container, $app) {
+    /** @var Statement $statement */
+    $statement = $container->get('connection')->prepare('   
+        SELECT
+            municipality_id AS id,
+            name,
+            IF(duplicate_info IS NULL, name, CONCAT(name, \' (okres \', duplicate_info,\')\')) AS unique_name
+        FROM
+            municipalities
+        ORDER BY
+            name');
+
+    $statement->execute();
+
+    return new JsonResponse(['items' => [['id' => '', 's' => '', 'text' => '']] + array_map(function($municipality) {
+        return [
+            'id' => '/m/' . $municipality['id'] . '.html',
+            's' => str_replace('-', ' ', \Nette\Utils\Strings::webalize($municipality['unique_name'])),
+            'text' => $municipality['unique_name']
+        ];
+    }, $statement->fetchAll())]);
+});
+
 $app->get('/data', function () use ($container, $app) {
     /** @var Statement $statement */
     $statement = $container->get('connection')->prepare('   

@@ -1,4 +1,5 @@
 {% extends 'layouts/layout.html.twig' %}
+{% import _self as m %}
 
 {% macro platoon() %}
     <div class="platoon">
@@ -19,7 +20,15 @@
     </div>
 {% endmacro %}
 
+{% macro army(nr_of_platoons) %}
     {% import _self as m %}
+    {% for i in range(1, nr_of_platoons) %}
+        <div class="col">
+            {{ m.platoon() }}
+            {{ m.platoon() }}
+        </div>
+    {% endfor %}
+{% endmacro %}
 
 {% block content %}
     <header class="s s-header">
@@ -39,6 +48,20 @@
             </p>
         </div>
     </header>
+    <section class="s s-gogogo">
+        <div class="c">
+            <h2>
+                Dostaň ich pod čiaru
+            </h2>
+
+            <p class="small">
+                4. novembra budú voľby do VÚC. Tvoj hlas má oveľa väčšiu váhu ako v parlamentných voľbách, pretože menej ľudí volí menej poslancov.
+            </p>
+            <p>
+                Kgálici to vedia a ich odhodlaní a disciplinovaní priaznivci voliť prídu.
+            </p>
+        </div>
+    </section>
     <section class="s s-magian">
         <div class="c">
             <div class="image-wrapper">
@@ -49,7 +72,7 @@
 
             <h2>Jeden kgálik Magián</h2>
             <p>
-                bol v roku 2013 zvolený za predsedu samosprávneho kraja.
+                bol zvolený za predsedu samosprávneho kraja v roku 2013.
             </p>
         </div>
     </section>
@@ -149,7 +172,7 @@
 
             <h2>14 kgálikov</h2>
             <p>
-                bolo zvolených do parlamentu v roku 2016. Hlasovalo za nich viac ako 200&nbsp;000 voličov.
+                bolo zvolených do parlamentu v roku 2016.<br>Hlasovalo za nich viac ako 200&nbsp;000 voličov.
             </p>
         </div>
     </section>
@@ -158,99 +181,25 @@
         <div class="c">
             <div class="d-lg-block d-none">
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(5) }}
                 </div>
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(2) }}
                     <div class="col">
                         <img src="/images/kgalikm.svg" class="kgalikm">
                     </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(2) }}
                 </div>
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(5) }}
                 </div>
             </div>
             <div class="d-lg-none d-block">
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(3) }}
                 </div>
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(3) }}
                 </div>
                 <div class="row">
                     <div class="col">
@@ -266,66 +215,52 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(3) }}
                 </div>
                 <div class="row">
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
-                    <div class="col">
-                        {{ m.platoon() }}
-                        {{ m.platoon() }}
-                    </div>
+                    {{ m.army(3) }}
                 </div>
             </div>
 
             <h2>337 kgálikov</h2>
             <p>
-                kandiduje za župných poslancov (VÚC) v roku 2017.
+                kandiduje do VÚC za župných poslancov 4.&nbsp;novembra 2017.
             </p>
         </div>
     </section>
     <section class="s s-form">
         <div class="c">
-            <h2>Hrozí zamorenie kgálikmi aj tvojej obci?</h2>
-        </div>
-    </section>
-    <section class="s s-alert">
-        <div class="c">
-            <h2> Spišská Nová Ves<br>je vážne ohrozená kgálikmi!</h2>
+            <h2>Kgáliky sa množia voľbami.<br>Môžeš im v&nbsp;tom zabrániť!</h2>
 
             <p>
-                Pozri si niekoľko čísel z tvojho volebného obvodu:
+                Na zvolenie župných poslancov stačí iba málo hlasov
+                a&nbsp;priaznivci kgálikov sa&nbsp;chystajú disciplinovane voliť.
             </p>
 
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="representative">
-                        <img src="/images/representative.svg">
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <div class="kgalici">
-                        <img src="/images/kgalik.svg">
-                    </div>
-                </div>
-            </div>
+            <p>
+                Pozri si čísla pre tvoju obec.
+            </p>
+
+
+            <form>
+                <select id="municipality"></select>
+            </form>
+        </div>
+    </section>
+    <section class="s s-municipality" style="display: none;">
+    </section>
+    <section class="s s-call-to-action">
+        <div class="c">
+            <h2>
+                Choď voliť 4. novembra,<br>
+                zakrúžkuj nekgálikov<br>
+                a&nbsp;pomôž zastaviť inváziu
+            </h2>
+        </div>
+    </section>
+    <section class="s s-footer">
+        <div class="c">
+            <a href="" class="fb-share" target="_blank">Zdieľaj na FB</a>
         </div>
     </section>
 {% endblock %}

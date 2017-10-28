@@ -2,10 +2,10 @@
 @import "../../../bower_components/select2/src/scss/core";
 
 @import "colors";
+@import "mixins";
 
 @import "sections/call-to-action";
 @import "sections/form";
-@import "sections/footer";
 @import "sections/gogogo";
 @import "sections/header";
 @import "sections/magian";
@@ -15,10 +15,18 @@
 
 @import "select2/theme/kgalici/layout";
 
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 .s {
+  @include padding(100, 110);
+
   .c {
     @extend .container-fluid !optional;
+
+    text-align: center;
 
     margin: 0 auto;
     max-width: 1564px;
@@ -37,52 +45,43 @@ body {
 h1, h2, h3 {
   font-family: 'Alfa Slab One', cursive;
   font-weight: normal;
-}
-/*
-table {
-  width: 100%;
-  border-collapse: collapse;
+  line-height: 1.25;
+  margin: 0;
 }
 
-thead td {
-  font-size: 14px;
+h1 {
+  @include font-size(70);
+  @include padding(20, 30);
 }
 
-td, th {
-  padding: 10px;
+h2 {
+  @include font-size(55);
+  @include padding(0, 30);
 }
 
-th {
-  text-align: left;
-  font-size: 20px;
+h3 {
+  @include font-size(36);
+  @include padding(40, 30);
 }
 
-tr.region th {
-  padding-top: 60px;
+p {
+  margin: 0;
+  font-weight: normal;
+  @include font-size(28);
+  line-height: 1.5;
+
+  @include padding(0, 15);
+
+  &:last-child {
+    @include padding(0, 0);
+  }
 }
 
-tr:nth-child(even) td {
-  background-color: #ededed;
+br {
+  @include media-breakpoint-down(sm) {
+    display: none;
+  }
 }
-
-.municipality-names {
-  font-size: 12px;
-  width: 33%;
-}
-
-tr.warning td {
-  background-color: #b2eea8;
-}
-
-tr:nth-child(even).warning td {
-  background-color: #a2d697;
-}
-
-tr.total th,
-tr.total td {
-  background-color: white;
-  border-bottom: 1px solid black;
-}*/
 
 a.fb-share {
   display: inline-block;
@@ -90,10 +89,13 @@ a.fb-share {
   background-color: $facebook-blue;
   color: $white;
   padding: 15px 20px;
+
+  @include padding(15, 15);
+
   width: 100%;
   max-width: 500px;
-  font-size: 36px;
-  font-weight: 300;
+  @include font-size(36);
+  font-weight: 400;
   box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.22);
 
   &:hover {

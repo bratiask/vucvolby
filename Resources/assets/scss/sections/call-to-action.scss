@@ -1,24 +1,9 @@
 .s-call-to-action {
   background-color: $puke-green;
-  padding-top: 60px;
-  padding-bottom: 150px;
-  text-align: center;
   color: $dark-shit;
-
-  h2 {
-    font-size: 60px;
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
 
   p {
     color: $black;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 1.5;
 
     max-width: 900px;
     margin-left: auto;
@@ -26,6 +11,6 @@
   }
 
   a.fb-share {
-    margin-top: 60px;
+    @include margin(60, 0);
   }
 }

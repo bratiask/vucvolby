@@ -1,0 +1,77 @@
+@mixin padding($top, $bottom){
+  padding-top: $top + px;
+  padding-bottom: $bottom + px;
+
+  @if $top > 0 or $bottom > 0 {
+
+    @include media-breakpoint-down(md) {
+      @if $top > 0 {
+        padding-top: ($top * 0.75) + px;
+      }
+      @if $bottom > 0 {
+        padding-bottom: ($bottom * 0.75) + px;
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      @if $top > 0 {
+        padding-top: ($top * 0.6) + px;
+      }
+      @if $bottom > 0 {
+        padding-bottom: ($bottom * 0.6) + px;
+      }
+    }
+  }
+}
+
+@mixin margin($top, $bottom){
+  margin-top: $top + px;
+  margin-bottom: $bottom + px;
+
+  @if $top > 0 or $bottom > 0 {
+
+    @include media-breakpoint-down(md) {
+      @if $top > 0 {
+        margin-top: ($top * 0.75) + px;
+      }
+      @if $bottom > 0 {
+        margin-bottom: ($bottom * 0.75) + px;
+      }
+    }
+    @include media-breakpoint-down(sm) {
+      @if $top > 0 {
+        margin-top: ($top * 0.6) + px;
+      }
+      @if $bottom > 0 {
+        margin-bottom: ($bottom * 0.6) + px;
+      }
+    }
+  }
+}
+
+@mixin font-size($font-size){
+  font-size: ($font-size) + px;
+
+  $min-font-size: 14;
+
+  @if $font-size > 16 {
+    $min-font-size: 18;
+  }
+
+  @include media-breakpoint-down(lg) {
+    font-size: max($min-font-size, ($font-size * 0.8)) + px;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: max($min-font-size, ($font-size * 0.75)) + px;
+  }
+
+  @include media-breakpoint-down(sm) {
+    font-size: max($min-font-size, ($font-size * 0.6)) + px;
+  }
+
+  @if $font-size > 59 {
+    @include media-breakpoint-down(xs) {
+      font-size: ($font-size * 0.4) + px;
+    }
+  }
+}

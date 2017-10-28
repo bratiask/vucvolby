@@ -1,23 +1,14 @@
 .s-header {
   background-color: $puke-green;
-  padding-top: 100px;
-  padding-bottom: 130px;
-  text-align: center;
   color: $dark-shit;
 
-  h1 {
-    font-size: 90px;
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
-    padding-top: 40px;
-    padding-bottom: 40px;
+  &.s {
+    @include padding(70, 110);
   }
 
   p {
-    font-weight: normal;
-    font-size: 32px;
-    line-height: 1.5;
+    line-height: 1.25;
+    @include font-size(32);
   }
 
   .image-wrapper {

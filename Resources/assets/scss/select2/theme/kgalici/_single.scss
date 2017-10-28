@@ -1,12 +1,22 @@
 .select2-selection--single {
-  background-color: mix($selection-bg-top-color, $selection-bg-bottom-color);
-
   border: 1px solid white;
   border-radius: $border-radius;
 
   outline: 0;
-  height: 80px;
   font-weight: 200;
+
+  height: 80px;
+
+  @include media-breakpoint-down(md) {
+    height: 70px;
+  }
+  @include media-breakpoint-down(sm) {
+    height: 60px;
+  }
+
+  @include media-breakpoint-down(xs) {
+    height: 50px;
+  }
 
   background-color: white;
 
@@ -17,7 +27,18 @@
   .select2-selection__rendered {
     color: #444;
     line-height: 76px;
-    font-size: 32px;
+    @include font-size(32);
+
+    @include media-breakpoint-down(md) {
+      line-height: 66px;
+    }
+    @include media-breakpoint-down(sm) {
+      line-height: 56px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      line-height: 46px;
+    }
   }
 
   .select2-selection__clear {
@@ -25,7 +46,7 @@
   }
 
   .select2-selection__placeholder {
-    font-size: 36px;
+    @include font-size(36);
     color: black;
     font-weight: 300;
   }
@@ -36,6 +57,17 @@
     border: none;
 
     height: 76px;
+
+    @include media-breakpoint-down(md) {
+      height: 66px;
+    }
+    @include media-breakpoint-down(sm) {
+      height: 56px;
+    }
+
+    @include media-breakpoint-down(xs) {
+      height: 46px;
+    }
 
     position: absolute;
 

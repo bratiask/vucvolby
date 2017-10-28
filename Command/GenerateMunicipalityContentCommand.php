@@ -55,7 +55,7 @@ class GenerateMunicipalityContentCommand extends ContainerAwareCommand
         if (count($votes) > 0)
         {
             $min_votes = $votes[0];
-            $votes_info = count($votes) === 1 ? $votes[0] : ('od ' . $votes[0] . ' do ' . $votes[count($votes) - 1]);
+            $votes_info = count($votes) === 1 ? $votes[0] : ('od&nbsp;' . $votes[0] . '&nbsp;do&nbsp;' . $votes[count($votes) - 1]);
             $municipalities = $this->getMunicipalitiesByVucSubregionId($municipality['vuc_subregion_2017_id']);
             $nr_of_municipalities = count($municipalities);
             $subregion_info = $this->getSubregionInfo($municipalities, 60);

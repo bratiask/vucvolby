@@ -1,25 +1,30 @@
 .s-parliament {
   background-color: $darker-shit;
-  padding-top: 140px;
-  padding-bottom: 100px;
-  text-align: center;
   color: $white;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+
+  @include media-breakpoint-down(xl) {
+    .c {
+      width: 90%;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    .c {
+      width: 80%;
+    }
+  }
+
+  @include media-breakpoint-down(xs) {
+    .c {
+      width: 100%;
+    }
+  }
 
   h2 {
-    font-size: 60px;
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
-    padding-top: 100px;
-    padding-bottom: 25px;
+    @include padding(20, 20);
   }
 
   p {
     color: #908975;
-    font-weight: normal;
-    font-size: 28px;
-    line-height: 1.5;
   }
 }

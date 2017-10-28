@@ -1,34 +1,14 @@
 .s-municipality {
   background-color: $light-red;
-  padding-top: 110px;
-  padding-bottom: 130px;
-  text-align: center;
 
   h2 {
     color: $bloody-red;
-    font-size: 60px;
-    line-height: 1.25;
-    margin: 0;
-    padding: 0;
-    padding-bottom: 80px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  h3 {
-    font-size: 36px;
-    line-height: 1.25;
-    padding-top: 40px;
-    padding-bottom: 20px;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    @include padding(0, 60);
   }
 
   p {
     color: $light-shit;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 1.5;
+    @include font-size(16);
 
     max-width: 900px;
     margin-left: auto;
@@ -69,9 +49,61 @@
     }
   }
 
+  @include media-breakpoint-down(sm) {
+    .number-subsection {
+      padding-top: 25px;
+      padding-bottom: 40px;
+
+      &:nth-child(even) {
+        background-color: #f0c8c5;
+      }
+
+      &:last-child {
+        padding-bottom: 0;
+      }
+
+      &.gabbits-2 {
+        .candidates-wrapper {
+          margin-top: -20%;
+          margin-bottom: -20%;
+        }
+      }
+
+      &.gabbits-5,
+      &.gabbits-6 {
+        .candidates-wrapper {
+          margin-top: -15%;
+          margin-bottom: -15%;
+        }
+      }
+
+      &.gabbits-10,
+      &.gabbits-11,
+      &.gabbits-12 {
+        .candidates-wrapper {
+          margin-top: -5%;
+          margin-bottom: -5%;
+        }
+      }
+    }
+  }
+
   .image-wrapper {
     width: 100%;
     max-width: 250px;
+
+    @include media-breakpoint-down(lg) {
+      max-width: 200px;
+    }
+
+    @include media-breakpoint-down(md) {
+      max-width: 150px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      max-width: 200px;
+    }
+
     margin: 0 auto;
 
     img {

@@ -1,23 +1,31 @@
-{%- set VERSION = 0.07 -%}
+{%- set VERSION = 0.08 -%}
 <!DOCTYPE html>
 <html lang="sk" dir="ltr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Zastavme inváziu kgálikov</title>
+    <title>Zastav inváziu kgálikov</title>
+
+    <meta property="og:url" content="https://kgalici.sk/">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zastav inváziu kgálikov">
+    <meta property="og:description" content="Robia hnedé bobky a tolerujú iba biele zvieratká. A množia sa. Zisti, ako ich môžeš zastaviť, aby nezamorili tvoje mesto alebo dedinu.">
+    <meta property="og:image" content="https://kgalici.sk/images/kgalici.png">
+    <meta property="og:image:width" content="952">
+    <meta property="og:image:height" content="1428">
 
     <link rel="icon" type="image/png" href="/images/favicon.png">
 
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto+Slab:300,400&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ VERSION }}">
+    <link rel="stylesheet" type="text/css" href="/css/main.min.css?v={{ VERSION }}">
 </head>
 
 <body data-version="{{ VERSION }}">
 {% block content %}
 {% endblock %}
 
-<script src="/js/main.js?v={{ VERSION }}"></script>
+<script src="/js/main.min.js?v={{ VERSION }}"></script>
 
 </body>
 </html>

@@ -1,21 +1,23 @@
-{%- set ASSETS_VERSION = 0.02 -%}
+{%- set VERSION = 0.03 -%}
 <!DOCTYPE html>
 <html lang="sk" dir="ltr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-    <title>Voľby do VÚC 2017</title>
+    <title>Zastavme inváziu kgálikov</title>
+
+    <link rel="icon" type="image/png" href="/images/favicon.png">
 
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto+Slab:300,400&amp;subset=latin-ext" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ ASSETS_VERSION }}">
+    <link rel="stylesheet" type="text/css" href="/css/main.css?v={{ VERSION }}">
 </head>
 
-<body data-version="1">
+<body data-version="{{ VERSION }}">
 {% block content %}
 {% endblock %}
 
-<script src="/js/main.js?v={{ ASSETS_VERSION }}"></script>
+<script src="/js/main.js?v={{ VERSION }}"></script>
 
 </body>
 </html>

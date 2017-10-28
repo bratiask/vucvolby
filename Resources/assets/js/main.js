@@ -1,5 +1,21 @@
 $(document).ready(function() {
-    var version = $('body').data('version');
+    var $body = $('body');
+    var $municipality_section = $('.s-municipality:first');
+    var version = $body.data('version');
+
+    function loadMunicipalitySlide(url)
+    {
+        $municipality_section.slideUp(500, function() {
+            $municipality_section.load(url + '?v=' + version, function() {
+                $municipality_section.slideDown();
+            });
+        });
+    }
+
+    if (location.hash.indexOf('#/m/') === 0)
+    {
+        loadMunicipalitySlide(location.hash.substring(1));
+    }
 
     $.getJSON('/municipalities.json', function(response) {
         var SOURCE = {
@@ -11,7 +27,7 @@ $(document).ready(function() {
 
                 if (SOURCE.last_term !== term)
                 {
-                    var normalized_term = removeDiacritics(term || '');
+                    var normalized_term = removeDiacritics(term || '').toLowerCase();
 
                     SOURCE.term_results = $.grep(SOURCE.items, function(item) {
                         return item.s.indexOf(normalized_term) > -1
@@ -33,13 +49,11 @@ $(document).ready(function() {
             }
         };
 
-        var $municipality_section = $('.s-municipality:first');
-
         $('#municipality')
             .on('change', function(){
-                $municipality_section.load($(this).val() + '?v=' + version, function() {
-                    $municipality_section.show();
-                });
+                var url = $(this).val();
+                location.hash = url;
+                loadMunicipalitySlide(url);
             }).
             select2({
                 theme: 'kgalici',
@@ -57,6 +71,12 @@ $(document).ready(function() {
                     }
                 }
             });
+    });
+
+    $body.on('click', '.show-more-municipalities a', function(event) {
+       event.preventDefault();
+       $('.show-more-municipalities').hide();
+       $('.hidden-municipalities').show();
     });
 });
 

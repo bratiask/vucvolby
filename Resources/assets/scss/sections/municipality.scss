@@ -40,6 +40,20 @@
     border-radius: 50%;
   }
 
+  .hidden-municipalities {
+    display: none;
+  }
+
+  .show-more-municipalities {
+    a {
+      color: $bloody-red;
+
+      &:hover {
+        color: darken($bloody-red, 10);
+      }
+    }
+  }
+
   .image-wrapper {
     width: 100%;
     max-width: 250px;

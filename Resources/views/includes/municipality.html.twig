@@ -27,39 +27,60 @@
 {% endmacro %}
 
 <div class="c">
-    <h2> Spišská Nová Ves,<br>hrozí ti zamorenie kgálikmi!</h2>
+    <h2>
+        {{ municipality.name }},<br>
+        {% if nr_of_lsns_candidates == 0 %}
+            kgálici v tvojom obvode nekandidujú!
+        {% else %}
+            hrozí zamorenie kgálikmi!
+        {% endif %}
+    </h2>
 
     <div class="row">
         <div class="col-md-4">
-            {% set nr_of_kgalikov = random(12) + 1 %}
-            {{ m.candidates(nr_of_kgalikov) }}
+            {{ m.candidates(nr_of_lsns_candidates == 0 ? 1 : nr_of_lsns_candidates) }}
 
             <h3>
-                {{ nr_of_kgalikov }}&nbsp;{{ nr_of_kgalikov == 1 ? 'kgálik kandiduje' : (nr_of_kgalikov <= 4 ? 'kgálici kandidujú' : 'kgálikov kandiduje') }}  za&nbsp;{{ nr_of_kgalikov == 1 ? 'poslanca' : 'poslancov' }}
+                {% if nr_of_lsns_candidates == 0 %}
+                    kgálici nekandidujú za poslancov
+                {% else %}
+                    {{ nr_of_lsns_candidates }}&nbsp;{{ nr_of_lsns_candidates == 1 ? 'kgálik kandiduje' : (nr_of_lsns_candidates <= 4 ? 'kgálici kandidujú' : 'kgálikov kandiduje') }}  za&nbsp;{{ nr_of_lsns_candidates == 1 ? 'poslanca' : 'poslancov' }}
+                {% endif %}
             </h3>
-        </div>
-        <div class="col-md-4">
-            <div class="image-wrapper">
-                <img src="/images/chair.svg">
-            </div>
 
-            <h3>
-                1800&nbsp;krúžkov stačilo na&nbsp;zvolenie poslanca*
-            </h3>
             <p>
-                * Vo voľbách do VÚC v roku 2013 získalo 5 zvolených poslancov v tvojom obvode 1800, 1978, 2560, 3210 a 4200 krúžkov.
+                v tvojom volebnom obvode, ktorý sa skladá z {{ nr_of_municipalities == 1 ? 'obce' : 'obcí' }}
+                {% if subregion_info.visible is not empty %}
+                    {{ subregion_info.visible }}{% if subregion_info.hidden is empty %}.{% else %}<span class="show-more-municipalities">... <a href="">zobraziť všetky obce</a></span><span class="hidden-municipalities">{{ subregion_info.hidden }}.</span>{% endif %}
+                {% endif %}
             </p>
         </div>
+        {% if min_votes > 0 %}
+            <div class="col-md-4">
+                <div class="image-wrapper">
+                    <img src="/images/chair.svg">
+                </div>
+
+                <h3>
+                    {{ min_votes }}&nbsp;krúžkov stačilo na&nbsp;zvolenie poslanca*
+                </h3>
+                <p>
+
+                    * Vo voľbách do VÚC v roku 2013 sa v tvojom volebnom obvode {{ nr_of_votes == 1 ? 'volil jeden poslanec. Tento poslanec získal' :
+                    (nr_of_votes <= 4 ? 'volili ' ~ nr_of_votes ~ ' poslanci. Títo poslanci získali' : 'volilo ' ~ nr_of_votes ~ ' poslancov. Títo poslanci získali') }} {{ votes_info }} krúžkov.
+                </p>
+            </div>
+        {% endif %}
         <div class="col-md-4">
             <div class="image-wrapper">
                 <img src="/images/supporters.svg">
             </div>
 
             <h3>
-                kgálici majú 2100&nbsp;a&nbsp;viac priaznivcov**
+                kgálici majú {{ nrsr_info.lsns_nr_of_valid }}&nbsp;a&nbsp;viac priaznivcov**
             </h3>
             <p>
-                ** Vo voľbách do NRSR v roku 2016 volilo kgálikov 2100 ľudí. Od&nbsp;volieb stúpli preferencie kgálikov o 2 percentuálne body.
+                ** Vo voľbách do NRSR v roku 2016 volilo v tvojom volebnom obvode kgálikov {{ nrsr_info.lsns_nr_of_valid }} ľudí. Od&nbsp;volieb stúpli, podľa prieskumov, preferencie kgálikov o 2 percentuálne body.
             </p>
         </div>
     </div>

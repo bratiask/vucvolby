@@ -83,3 +83,21 @@ tr.total td {
   background-color: white;
   border-bottom: 1px solid black;
 }
+
+a.fb-share {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: $facebook-blue;
+  color: $white;
+  padding: 15px 20px;
+  width: 100%;
+  max-width: 500px;
+  font-size: 36px;
+  font-weight: 300;
+  box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.22);
+
+  &:hover {
+    text-decoration: none;
+    background-color: lighten($facebook-blue, 10);
+  }
+}

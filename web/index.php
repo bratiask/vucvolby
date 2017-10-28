@@ -54,7 +54,7 @@ $app->get('/municipalities.json', function () use ($container, $app) {
     return new JsonResponse(['items' => [['id' => '', 's' => '', 'text' => '']] + array_map(function($municipality) {
         return [
             'id' => '/m/' . $municipality['id'] . '.html',
-            's' => str_replace('-', ' ', \Nette\Utils\Strings::webalize($municipality['unique_name'])),
+            's' => str_replace('-', ' ', \Nette\Utils\Strings::webalize($municipality['name'])),
             'text' => $municipality['unique_name']
         ];
     }, $statement->fetchAll())]);

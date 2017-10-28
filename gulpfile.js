@@ -48,7 +48,6 @@ const SCSS_WATCH_FILES = [
 ];
 
 const CSS_FILES = [
-    BOWER_DIRECTORY + 'highlightjs/styles/github-gist.css'
 ];
 
 const CSS_WATCH_FILES = [
@@ -57,8 +56,6 @@ const CSS_WATCH_FILES = [
 const JS_FILES = {
     'main.js': [
         BOWER_DIRECTORY + 'jquery/dist/jquery.js',
-        BOWER_DIRECTORY + 'popper.js/dist/umd/popper.js',
-        BOWER_DIRECTORY + 'bootstrap/dist/js/bootstrap.js',
         BOWER_DIRECTORY + 'select2/dist/js/select2.js',
         ASSETS_DIRECTORY + 'js/**/*.js'
     ]

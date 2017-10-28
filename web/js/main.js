@@ -22348,11 +22348,17 @@ $(document).ready(function() {
             });
     });
 
-    $body.on('click', '.show-more-municipalities a', function(event) {
-       event.preventDefault();
-       $('.show-more-municipalities').hide();
-       $('.hidden-municipalities').show();
-    });
+    $body
+        .on('click', '.show-more-municipalities a', function(event) {
+           event.preventDefault();
+           $('.show-more-municipalities').hide();
+           $('.hidden-municipalities').show();
+        })
+        .on('click', '.show-representatives-table', function(event) {
+           event.preventDefault();
+           $('.show-representatives-table').hide();
+           $('.representatives-table').show();
+        });
 });
 
 var defaultDiacriticsRemovalMap = [

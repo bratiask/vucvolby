@@ -40,6 +40,7 @@
     border-radius: 50%;
   }
 
+  .representatives-table,
   .hidden-municipalities {
     display: none;
   }
@@ -51,6 +52,20 @@
       &:hover {
         color: darken($bloody-red, 10);
       }
+    }
+  }
+
+  .show-representatives-table {
+    color: $bloody-red;
+
+    &:hover {
+      color: darken($bloody-red, 10);
+    }
+  }
+
+  .representatives-table {
+    td {
+      border: none !important;
     }
   }
 

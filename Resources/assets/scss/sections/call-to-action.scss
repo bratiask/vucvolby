@@ -1,7 +1,7 @@
 .s-call-to-action {
   background-color: $puke-green;
-  padding-top: 0;
-  padding-bottom: 90px;
+  padding-top: 60px;
+  padding-bottom: 150px;
   text-align: center;
   color: $dark-shit;
 
@@ -26,7 +26,6 @@
   }
 
   a.fb-share {
-    position: relative;
-    top: -45px;
+    margin-top: 60px;
   }
 }

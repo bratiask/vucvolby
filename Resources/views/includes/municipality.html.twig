@@ -64,11 +64,28 @@
                 <h3>
                     {{ min_votes }}&nbsp;krúžkov stačilo na&nbsp;zvolenie poslanca*
                 </h3>
+                {% set nr_of_votes = votes|length %}
                 <p>
-
                     * Vo voľbách do VÚC v roku 2013 sa v tvojom volebnom obvode {{ nr_of_votes == 1 ? 'volil jeden poslanec. Tento poslanec získal' :
                     (nr_of_votes <= 4 ? 'volili ' ~ nr_of_votes ~ ' poslanci. Títo poslanci získali' : 'volilo ' ~ nr_of_votes ~ ' poslancov. Títo poslanci získali') }} {{ votes_info }} krúžkov.
+                    {% if nr_of_votes > 1 %}
+                        <a href="" class="show-representatives-table">Zobraziť tabuľku poslancov</a>
+                    {% endif %}
                 </p>
+                {% if nr_of_votes > 1 %}
+                    <table class="table table-striped representatives-table">
+                        {% for vote in votes %}
+                            <tr>
+                                <td>
+                                    {{ loop.index }}. poslanec
+                                </td>
+                                <td>
+                                    {{ vote }} krúžkov
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% endif %}
             </div>
         {% endif %}
         <div class="col-md-4">

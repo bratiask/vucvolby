@@ -7113,8 +7113,8 @@ a.text-dark:focus, a.text-dark:hover {
 
 .s-call-to-action {
   background-color: #8bb150;
-  padding-top: 0;
-  padding-bottom: 90px;
+  padding-top: 60px;
+  padding-bottom: 150px;
   text-align: center;
   color: #362f26; }
   .s-call-to-action h2 {
@@ -7133,8 +7133,7 @@ a.text-dark:focus, a.text-dark:hover {
     margin-left: auto;
     margin-right: auto; }
   .s-call-to-action a.fb-share {
-    position: relative;
-    top: -45px; }
+    margin-top: 60px; }
 
 .s-form {
   background-color: #9e1010;
@@ -7294,12 +7293,19 @@ a.text-dark:focus, a.text-dark:hover {
   .s-municipality .kgalici {
     background-color: #2f2b20;
     border-radius: 50%; }
+  .s-municipality .representatives-table,
   .s-municipality .hidden-municipalities {
     display: none; }
   .s-municipality .show-more-municipalities a {
     color: #9e1010; }
     .s-municipality .show-more-municipalities a:hover {
       color: #700b0b; }
+  .s-municipality .show-representatives-table {
+    color: #9e1010; }
+    .s-municipality .show-representatives-table:hover {
+      color: #700b0b; }
+  .s-municipality .representatives-table td {
+    border: none !important; }
   .s-municipality .image-wrapper {
     width: 100%;
     max-width: 250px;
@@ -7684,41 +7690,51 @@ h1, h2, h3 {
   font-family: 'Alfa Slab One', cursive;
   font-weight: normal; }
 
+/*
 table {
   width: 100%;
-  border-collapse: collapse; }
+  border-collapse: collapse;
+}
 
 thead td {
-  font-size: 14px; }
+  font-size: 14px;
+}
 
 td, th {
-  padding: 10px; }
+  padding: 10px;
+}
 
 th {
   text-align: left;
-  font-size: 20px; }
+  font-size: 20px;
+}
 
 tr.region th {
-  padding-top: 60px; }
+  padding-top: 60px;
+}
 
 tr:nth-child(even) td {
-  background-color: #ededed; }
+  background-color: #ededed;
+}
 
 .municipality-names {
   font-size: 12px;
-  width: 33%; }
+  width: 33%;
+}
 
 tr.warning td {
-  background-color: #b2eea8; }
+  background-color: #b2eea8;
+}
 
 tr:nth-child(even).warning td {
-  background-color: #a2d697; }
+  background-color: #a2d697;
+}
 
 tr.total th,
 tr.total td {
   background-color: white;
-  border-bottom: 1px solid black; }
-
+  border-bottom: 1px solid black;
+}*/
 a.fb-share {
   display: inline-block;
   border-radius: 5px;

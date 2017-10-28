@@ -5,6 +5,7 @@ namespace bratiask\VucVolby\Command;
 use Nette\Utils\Strings;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 use Twig_Environment;
 
 class GenerateMunicipalityContentCommand extends ContainerAwareCommand
@@ -23,11 +24,18 @@ class GenerateMunicipalityContentCommand extends ContainerAwareCommand
     {
         $this->setTwigEnvironment($this->container->get('twig'));
 
-//        $this->getConnection()->prepare("TRUNCATE TABLE votes_2012_parliament")->execute();
-//
-//        $this->processCsv('nrsr_2012.csv', function($municipality_id, $row) {
-//            $this->insertRecord($municipality_id, $this->n($row[2]), $this->n($row[12]), $this->n($row[6]), $this->n($row[13]), $this->n($row[16]));
-//        });
+        $statement = $this->getConnection()->prepare("SELECT municipality_id FROM municipalities");
+        $statement->execute();
+
+        $base_dir = __DIR__ . '/../web/m/';
+
+        $fs = new Filesystem();
+        $fs->remove(glob($base_dir . '*.*'));
+
+        foreach ($statement->fetchAll() as $municipality)
+        {
+            $fs->dumpFile($base_dir . $municipality['municipality_id'] . '.html', $this->getHtml($municipality['municipality_id']));
+        }
     }
 
     public function setTwigEnvironment(Twig_Environment $twig)

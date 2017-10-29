@@ -1,4 +1,4 @@
-{%- set VERSION = 0.09 -%}
+{%- set VERSION = 1.00 -%}
 {%- set FB_URL = 'https://kgalici.sk/' -%}
 {%- set FB_DESCRRIPTION = 'Robia hnedé bobky a tolerujú iba biele zvieratká. A množia sa. Zisti, ako ich môžeš zastaviť, aby nezamorili tvoje mesto alebo dedinu.' -%}
 {%- set FB_TITLE = 'Zastav inváziu kgálikov' -%}
@@ -23,6 +23,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Alfa+Slab+One|Roboto+Slab:300,400&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="/css/main.min.css?v={{ VERSION }}">
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108806947-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-108806947-1');
+    </script>
 </head>
 
 <body data-version="{{ VERSION }}">

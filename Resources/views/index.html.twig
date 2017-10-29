@@ -266,6 +266,17 @@
                 Povedz to aj svojim kamarátom.
             </p>
 
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id)) return;
+                    js = d.createElement(s); js.id = id;
+                    js.src = 'https://connect.facebook.net/sk_SK/sdk.js#xfbml=1&version=v2.10&appId=153936648677078';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));</script>
+
+            <div class="fb-like" style="margin-top: 30px;" data-href="https://www.facebook.com/kgalici/" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="false"></div>
+
             <div>
                 <a href="https://www.facebook.com/sharer.php?title={{ FB_TITLE|url_encode }}={{ FB_DESCRRIPTION|url_encode }}&u={{ FB_URL|url_encode }}" class="fb-share" target="_blank">Zdieľaj na FB</a>
             </div>

@@ -47,6 +47,12 @@
     td {
       border: none !important;
     }
+
+    tr:nth-child(odd) {
+      td {
+        background-color: #f0c8c5;
+      }
+    }
   }
 
   @include media-breakpoint-down(sm) {

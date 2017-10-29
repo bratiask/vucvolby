@@ -52,6 +52,10 @@
             <tag name="command" />
         </service>
 
+        <service id="command.GenerateIndexContent" class="\bratiask\VucVolby\Command\GenerateIndexContentCommand">
+            <tag name="command" />
+        </service>
+
         <service id="command.ImportMunicipalities2017" class="\bratiask\VucVolby\Command\ImportMunicipalities2017Command">
             <tag name="command" />
         </service>

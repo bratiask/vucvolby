@@ -33,7 +33,7 @@
 
     <div class="c">
         <h2>
-            Kandidáti za poslancov<br>vo&nbsp;voľbách do&nbsp;VÚC&nbsp;2017<br>{{ municipality.name }}
+            Kandidáti za poslancov<br> vo&nbsp;voľbách do&nbsp;VÚC&nbsp;2017<br> {{ municipality.name }}
         </h2>
 
         <p>
@@ -46,6 +46,7 @@
 
         <p class="nr-of-representatives-info">
             V tvojom volebnom obvode môžeš zakrúžkovať {{ (nr_of_representatives == 1 ? '<strong>jedného</strong> kandidáta' : ('<strong>' ~ nr_of_representatives ~ '</strong> kandidátov'))|raw }}.
+            <br> Neboj sa použiť všetky krúžky.
         </p>
 
         <div class="candidates">

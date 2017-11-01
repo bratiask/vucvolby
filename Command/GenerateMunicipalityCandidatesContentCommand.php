@@ -208,6 +208,12 @@ class GenerateMunicipalityCandidatesContentCommand extends ContainerAwareCommand
                 party != 'KSS'
                     AND 
                 party != 'VZDOR'
+                    AND 
+                party != 'ÚSVIT'
+                    AND 
+                party != 'PSN'
+                    AND 
+                party != 'Slovenská ľudová strana (SĽS)'
             ORDER BY
                 nr_of_votes");
 

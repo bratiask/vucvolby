@@ -1,0 +1,167 @@
+{% spaceless %}
+    {%- set FB_URL = 'https://kgalici.sk/koho-volit' -%}
+    {%- set FB_DESCRRIPTION = 'Zisti ktorí nekgálici kandidujú v tvojom volebnom obvode, či kandidovali vo voľbách v minulosti a ako vtedy dopadli.' -%}
+    {%- set FB_TITLE = 'Koho voliť alebo kto sú nekgálici?' -%}
+
+    {% import _self as m %}
+
+    {% macro candidates(count) %}
+        {% if count == 1 %}
+            {% set class = '' %}
+        {% elseif count == 2 %}
+            {% set class = '2-1' %}
+        {% elseif count <= 4 %}
+            {% set class = '2-2' %}
+        {% elseif count <= 6 %}
+            {% set class = '3-2' %}
+        {% elseif count <= 9 %}
+            {% set class = '3-3' %}
+        {% elseif count <= 12 %}
+            {% set class = '4-3' %}
+        {% else %}
+            {% set class = '4-4' %}
+        {% endif %}
+
+        <div class="image-wrapper">
+            <div class="candidates-wrapper">
+                {% for i in range(1, count) %}
+                    <img src="/images/kgalik-candidate.svg" class="can-{{ class }}-{{ i }}">
+                {% endfor %}
+            </div>
+        </div>
+    {% endmacro %}
+
+    <div class="c">
+        <h2>
+            Kandidáti za poslancov<br>vo&nbsp;voľbách do&nbsp;VÚC&nbsp;2017<br>{{ municipality.name }}
+        </h2>
+
+        <p>
+            Chceš ísť voliť, ale nevieš koho?
+            Musíš si spraviť domácu úlohu a vybrať si kandidátky a kandidátov, ktorých zakrúžkuješ.
+            Ak naozaj nemáš predstavu o tom koho zvoliť, tak zváž kandidátov, ktorí majú najväčšiu šancu na zvolenie
+            a kandidujú za stranu alebo koalíciu, ktorá je tvojmu srdcu najbližšia.
+            Daj si čas a pogoogli niečo o kandidátoch a rozhodni sa zodpovedne.
+        </p>
+
+        <p class="nr-of-representatives-info">
+            V tvojom volebnom obvode môžeš zakrúžkovať {{ (nr_of_representatives == 1 ? '<strong>jedného</strong> kandidáta' : ('<strong>' ~ nr_of_representatives ~ '</strong> kandidátov'))|raw }}.
+        </p>
+
+        <div class="candidates">
+            {% for candidate in all_candidates %}
+                <div class="row">
+                    <div class="col-sm-1 col-xs-2 candidate-number">
+                        {{ candidate.number }}
+                    </div>
+                    <div class="col-sm-4 col-xs-10">
+                        <strong>{{ candidate.name }}</strong>
+                        <div class="meta">
+                            <p>
+                                {{ candidate.occupation }}, {{ candidate.age }} rokov<br>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-sm-7 col-xs-10 col-xs-offset-2 col-sm-offset-0 meta">
+                        <ul class="list-bullet list">
+                            <li>
+                                2017: {{ candidate.party }}
+                            </li>
+                            {% for year, past_election in candidate.past_elections %}
+                                <li>
+                                    {{ year }}: {{ past_election.party }}, {{ past_election.nr_of_votes }} krúžkov ({{ past_election.elected ? "ne" : '' }}získal/a mandát)
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            {% endfor %}
+
+            <p class="disclaimer">
+                Kandidáti sú v zozname zoradení podľa poradového čísla, ktoré eviduje Štatistický úrad.
+                Historické údaje kandidátov sú priradené na základe zhody mena a priezviska.
+                V prípade, že nájdeš chybu v historických údajoch, daj nám prosím vedieť cez <a href="https://www.facebook.com/kgalici/" target="_blank">našu stránku na Facebooku</a>.
+                Okrem kgálikov sú zo zoznamu vylúčení aj kandidáti kandidujúci za strany, ktoré považujeme za extrémistické.
+            </p>
+
+            <div style="text-align: center;">
+                <a href="https://www.facebook.com/sharer.php?title={{ FB_TITLE|url_encode }}={{ FB_DESCRRIPTION|url_encode }}&u={{ FB_URL|url_encode }}" class="fb-share" target="_blank">Zdieľaj zoznam na FB</a>
+            </div>
+        </div>
+
+        <h2>
+            {{ municipality.name }},<br>
+            {% if nr_of_lsns_candidates == 0 %}
+                kgálici v tvojom obvode nekandidujú!
+            {% else %}
+                hrozí zamorenie kgálikmi!
+            {% endif %}
+        </h2>
+
+        <div class="row">
+            <div class="col-sm-4 number-subsection gabbits-{{ nr_of_lsns_candidates == 0 ? 1 : nr_of_lsns_candidates }}">
+                {{ m.candidates(nr_of_lsns_candidates == 0 ? 1 : nr_of_lsns_candidates) }}
+
+                <h3>
+                    {% if nr_of_lsns_candidates == 0 %}
+                        kgálici nekandidujú za poslancov
+                    {% else %}
+                        {{ nr_of_lsns_candidates }}&nbsp;{{ nr_of_lsns_candidates == 1 ? 'kgálik kandiduje' : (nr_of_lsns_candidates <= 4 ? 'kgálici kandidujú' : 'kgálikov kandiduje') }}  za&nbsp;{{ nr_of_lsns_candidates == 1 ? 'poslanca' : 'poslancov' }}
+                    {% endif %}
+                </h3>
+
+                <p>
+                    v tvojom volebnom obvode, ktorý sa skladá z {{ nr_of_municipalities == 1 ? 'obce' : 'obcí' }}
+                    {% if subregion_info.visible is not empty %}
+                        {{ subregion_info.visible }}{% if subregion_info.hidden is empty %}.{% else %}<span class="show-more-municipalities">... <a href="">Zobraziť všetky obce</a></span><span class="hidden-municipalities">{{ subregion_info.hidden }}.</span>{% endif %}
+                    {% endif %}
+                </p>
+            </div>
+            {% if min_votes > 0 %}
+                <div class="col-sm-4 number-subsection">
+                    <div class="image-wrapper">
+                        <img src="/images/chair.svg">
+                    </div>
+
+                    <h3>
+                        {{ min_votes }}&nbsp;krúžkov stačilo na&nbsp;zvolenie poslanca*
+                    </h3>
+                    {% set nr_of_votes = votes|length %}
+                    <p>
+                        * Vo&nbsp;voľbách do&nbsp;VÚC v&nbsp;roku 2013 sa v&nbsp;tvojom volebnom obvode {{ (nr_of_votes == 1 ? 'volil jeden poslanec. Tento poslanec získal' :
+                        (nr_of_votes <= 4 ? 'volili ' ~ nr_of_votes ~ ' poslanci. Títo poslanci získali' : 'volilo ' ~ nr_of_votes ~ '&nbsp;poslancov. Títo poslanci získali'))|raw }} {{ votes_info|raw }} krúžkov.
+                        {% if nr_of_votes > 1 %}
+                            <a href="" class="show-representatives-table">Zobraziť tabuľku poslancov</a>
+                        {% endif %}
+                    </p>
+                    {% if nr_of_votes > 1 %}
+                        <table class="table representatives-table">
+                            {% for vote in votes|reverse %}
+                                <tr>
+                                    <td>
+                                        poslanec č. {{ loop.index }}
+                                    </td>
+                                    <td>
+                                        {{ vote }} krúžkov
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </table>
+                    {% endif %}
+                </div>
+            {% endif %}
+            <div class="col-sm-4 number-subsection">
+                <div class="image-wrapper">
+                    <img src="/images/supporters.svg">
+                </div>
+
+                <h3>
+                    kgálici majú {{ nrsr_info.lsns_nr_of_valid }}&nbsp;a&nbsp;viac priaznivcov**
+                </h3>
+                <p>
+                    ** Vo&nbsp;voľbách do&nbsp;NRSR v&nbsp;roku 2016 volilo v&nbsp;tvojom volebnom obvode kgálikov {{ nrsr_info.lsns_nr_of_valid }}&nbsp;ľudí. Podľa prieskumov preferencie kgálikov stúpli od&nbsp;volieb o&nbsp;2&nbsp;percentuálne body.
+                </p>
+            </div>
+        </div>
+    </div>
+{% endspaceless %}

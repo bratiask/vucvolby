@@ -1,0 +1,26 @@
+.s-list-header {
+  background-color: $puke-green;
+  color: $dark-shit;
+
+  &.s {
+    @include padding(70, 110);
+  }
+
+  p {
+    @include font-size(24);
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+
+    img {
+      width: 100%;
+    }
+  }
+}

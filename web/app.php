@@ -24,6 +24,15 @@ $app->register(new Silex\Provider\TwigServiceProvider(), array(
     'twig.path' => __DIR__.'/../Resources/views',
 ));
 
+$app->get('/koho-volit', function () use ($container, $app) {
+    /** @var GenerateIndexContentCommand $command */
+    $command = $container->get('command.GenerateCandidatesContent');
+    $command->setContainer($container);
+    $command->setTwigEnvironment($app['twig']);
+
+    return $command->getHtml();
+});
+
 $app->get('/', function () use ($container, $app) {
     /** @var GenerateIndexContentCommand $command */
     $command = $container->get('command.GenerateIndexContent');
@@ -42,7 +51,29 @@ $app->get('/m/{municipality_id}.html', function ($municipality_id) use ($contain
     return $command->getHtml($municipality_id);
 });
 
+$app->get('/list/m/{municipality_id}.html', function ($municipality_id) use ($container, $app) {
+    /** @var GenerateMunicipalityContentCommand $command */
+    $command = $container->get('command.GenerateMunicipalityCandidatesContent');
+    $command->setContainer($container);
+    $command->setTwigEnvironment($app['twig']);
+
+    return $command->getHtml($municipality_id);
+});
+
 $app->get('/municipalities.json', function () use ($container, $app) {
+    return getMunicipalities($container, function($municipality) {
+        return '/m/' . $municipality['id'] . '.html';
+    });
+});
+
+$app->get('/list/municipalities.json', function () use ($container, $app) {
+    return getMunicipalities($container, function($municipality) {
+        return '/list/m/' . $municipality['id'] . '.html';
+    });
+});
+
+function getMunicipalities($container, $url_callback)
+{
     /** @var Statement $statement */
     $statement = $container->get('connection')->prepare('   
         SELECT
@@ -56,14 +87,14 @@ $app->get('/municipalities.json', function () use ($container, $app) {
 
     $statement->execute();
 
-    return new JsonResponse(['items' => [['id' => '', 's' => '', 'text' => '']] + array_map(function($municipality) {
-        return [
-            'id' => '/m/' . $municipality['id'] . '.html',
-            's' => str_replace('-', ' ', \Nette\Utils\Strings::webalize($municipality['name'])),
-            'text' => $municipality['unique_name']
-        ];
-    }, $statement->fetchAll())]);
-});
+    return new JsonResponse(['items' => [['id' => '', 's' => '', 'text' => '']] + array_map(function($municipality) use ($url_callback) {
+            return [
+                'id' => $url_callback($municipality),
+                's' => str_replace('-', ' ', \Nette\Utils\Strings::webalize($municipality['name'])),
+                'text' => $municipality['unique_name']
+            ];
+        }, $statement->fetchAll())]);
+}
 
 $app->get('/data', function () use ($container, $app) {
     /** @var Statement $statement */

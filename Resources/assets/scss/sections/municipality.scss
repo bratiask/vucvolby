@@ -55,6 +55,83 @@
     }
   }
 
+  &.s-municipality-candidates {
+    background-color: $nausea-green;
+
+    h2 {
+      color: $light-shit;
+    }
+
+    a {
+      color: #3e5024;
+
+      &.fb-share {
+        color: $white;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+
+    .representatives-table {
+
+      tr:nth-child(odd) {
+        td {
+          background-color: rgba(128, 128, 128, 0.15);
+        }
+      }
+    }
+
+    p.nr-of-representatives-info {
+      @include font-size(21);
+    }
+  }
+
+  .candidates {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 18px;
+
+    @include padding(20, 90);
+
+    .disclaimer {
+      font-size: 12px;
+      @include padding(20, 40);
+    }
+
+    & > .row {
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      &:nth-child(odd) {
+        background-color: rgba(128, 128, 128, 0.15);
+      }
+    }
+
+    @include media-breakpoint-down(xs) {
+        ul {
+        margin: 5px 0 0 0;
+      }
+    }
+
+    .candidate-number {
+      text-align: right;
+      color: #494949;
+    }
+
+    .year {
+      text-align: right;
+    }
+
+    .meta,
+    .meta * {
+      color: #494949;
+      font-size: 13px;
+    }
+  }
+
   @include media-breakpoint-down(sm) {
     .number-subsection {
       padding-top: 25px;

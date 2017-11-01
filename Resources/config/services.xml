@@ -52,7 +52,15 @@
             <tag name="command" />
         </service>
 
+        <service id="command.GenerateMunicipalityCandidatesContent" class="\bratiask\VucVolby\Command\GenerateMunicipalityCandidatesContentCommand">
+            <tag name="command" />
+        </service>
+
         <service id="command.GenerateIndexContent" class="\bratiask\VucVolby\Command\GenerateIndexContentCommand">
+            <tag name="command" />
+        </service>
+
+        <service id="command.GenerateCandidatesContent" class="\bratiask\VucVolby\Command\GenerateCandidatesContentCommand">
             <tag name="command" />
         </service>
 

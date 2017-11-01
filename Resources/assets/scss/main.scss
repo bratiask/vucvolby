@@ -15,6 +15,7 @@
 @import "sections/form";
 @import "sections/gogogo";
 @import "sections/header";
+@import "sections/list-header";
 @import "sections/magian";
 @import "sections/municipality";
 @import "sections/parliament";
@@ -25,6 +26,16 @@
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+form {
+  margin: 0;
+  @include padding(60, 0);
+}
+
+select {
+  width: 100%;
+  max-width: 500px;
 }
 
 .col-1-3 {

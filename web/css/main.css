@@ -6730,19 +6730,6 @@ button.close {
     max-width: 900px;
     margin-left: auto;
     margin-right: auto; }
-  .s-form form {
-    margin: 0;
-    padding-top: 60px;
-    padding-bottom: 0px; }
-    @media (max-width: 991px) {
-      .s-form form {
-        padding-top: 45px; } }
-    @media (max-width: 767px) {
-      .s-form form {
-        padding-top: 36px; } }
-  .s-form select {
-    width: 100%;
-    max-width: 500px; }
 
 .s-gogogo {
   background-color: #b1d66a;
@@ -6811,6 +6798,42 @@ button.close {
         bottom: 0; }
         .s-header .image-wrapper .image .kgalik:last-of-type {
           right: 0; }
+
+.s-list-header {
+  background-color: #8bb150;
+  color: #362f26; }
+  .s-list-header.s {
+    padding-top: 70px;
+    padding-bottom: 110px; }
+    @media (max-width: 991px) {
+      .s-list-header.s {
+        padding-top: 52.5px;
+        padding-bottom: 82.5px; } }
+    @media (max-width: 767px) {
+      .s-list-header.s {
+        padding-top: 42px;
+        padding-bottom: 66px; } }
+  .s-list-header p {
+    font-size: 24px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto; }
+    @media (max-width: 1199px) {
+      .s-list-header p {
+        font-size: 19.2px; } }
+    @media (max-width: 991px) {
+      .s-list-header p {
+        font-size: 18px; } }
+    @media (max-width: 767px) {
+      .s-list-header p {
+        font-size: 18px; } }
+  .s-list-header .image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto; }
+    .s-list-header .image-wrapper img {
+      width: 100%; }
 
 .s-magian {
   background-color: #453f2f;
@@ -6903,6 +6926,73 @@ button.close {
     border: none !important; }
   .s-municipality .representatives-table tr:nth-child(odd) td {
     background-color: #f0c8c5; }
+  .s-municipality.s-municipality-candidates {
+    background-color: #bfe096; }
+    .s-municipality.s-municipality-candidates h2 {
+      color: #453f2f; }
+    .s-municipality.s-municipality-candidates a {
+      color: #3e5024; }
+      .s-municipality.s-municipality-candidates a.fb-share {
+        color: white; }
+        .s-municipality.s-municipality-candidates a.fb-share:hover {
+          text-decoration: none; }
+    .s-municipality.s-municipality-candidates .representatives-table tr:nth-child(odd) td {
+      background-color: rgba(128, 128, 128, 0.15); }
+    .s-municipality.s-municipality-candidates p.nr-of-representatives-info {
+      font-size: 21px; }
+      @media (max-width: 1199px) {
+        .s-municipality.s-municipality-candidates p.nr-of-representatives-info {
+          font-size: 18px; } }
+      @media (max-width: 991px) {
+        .s-municipality.s-municipality-candidates p.nr-of-representatives-info {
+          font-size: 18px; } }
+      @media (max-width: 767px) {
+        .s-municipality.s-municipality-candidates p.nr-of-representatives-info {
+          font-size: 18px; } }
+  .s-municipality .candidates {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 18px;
+    padding-top: 20px;
+    padding-bottom: 90px; }
+    @media (max-width: 991px) {
+      .s-municipality .candidates {
+        padding-top: 15px;
+        padding-bottom: 67.5px; } }
+    @media (max-width: 767px) {
+      .s-municipality .candidates {
+        padding-top: 12px;
+        padding-bottom: 54px; } }
+    .s-municipality .candidates .disclaimer {
+      font-size: 12px;
+      padding-top: 20px;
+      padding-bottom: 40px; }
+      @media (max-width: 991px) {
+        .s-municipality .candidates .disclaimer {
+          padding-top: 15px;
+          padding-bottom: 30px; } }
+      @media (max-width: 767px) {
+        .s-municipality .candidates .disclaimer {
+          padding-top: 12px;
+          padding-bottom: 24px; } }
+    .s-municipality .candidates > .row {
+      padding-top: 10px;
+      padding-bottom: 10px; }
+      .s-municipality .candidates > .row:nth-child(odd) {
+        background-color: rgba(128, 128, 128, 0.15); }
+    @media (max-width: 575px) {
+      .s-municipality .candidates ul {
+        margin: 5px 0 0 0; } }
+    .s-municipality .candidates .candidate-number {
+      text-align: right;
+      color: #494949; }
+    .s-municipality .candidates .year {
+      text-align: right; }
+    .s-municipality .candidates .meta,
+    .s-municipality .candidates .meta * {
+      color: #494949;
+      font-size: 13px; }
   @media (max-width: 767px) {
     .s-municipality .number-subsection {
       padding-top: 25px;
@@ -7360,6 +7450,21 @@ button.close {
 * {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; }
+
+form {
+  margin: 0;
+  padding-top: 60px;
+  padding-bottom: 0px; }
+  @media (max-width: 991px) {
+    form {
+      padding-top: 45px; } }
+  @media (max-width: 767px) {
+    form {
+      padding-top: 36px; } }
+
+select {
+  width: 100%;
+  max-width: 500px; }
 
 .col-1-6 {
   float: left;

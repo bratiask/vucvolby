@@ -16013,12 +16013,12 @@ $(document).ready(function() {
         });
     }
 
-    if (location.hash.indexOf('#/m/') === 0)
+    if (location.hash.indexOf('#/m/') === 0 || location.hash.indexOf('#/list/m/') === 0)
     {
         loadMunicipalitySlide(location.hash.substring(1));
     }
 
-    $.getJSON('/municipalities.json', function(response) {
+    $.getJSON($('.s-list-header').length > 0 ? '/list/municipalities.json' : '/municipalities.json', function(response) {
         var SOURCE = {
             items: response.items,
             items_per_page: 100,

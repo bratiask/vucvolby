@@ -20,11 +20,12 @@ class ImportVuc2017Command extends ContainerAwareCommand
         $this->getConnection()->prepare("TRUNCATE TABLE votes_2017_vuc")->execute();
 
         $this->processCsv('vuc-2017-kandidati.csv', function($vuc_region_id, $vuc_subregion_id, $municipality_id, $row) {
-            $this->insertPerson($vuc_region_id, $vuc_subregion_id, $municipality_id, trim($row[3]) . ' ' . trim($row[4]), trim($row[5]), trim($row[1]));
+            $this->insertPerson($vuc_region_id, $vuc_subregion_id, $municipality_id, trim($row[3]) . ' ' . trim($row[4]), trim($row[8]), trim($row[1]),
+                trim($row[2]), trim($row[6]), trim($row[5]));
         });
     }
 
-    private function insertPerson($vuc_region_id, $vuc_subregion_id, $municipality_id, $name, $party, $subregion_name_2017)
+    private function insertPerson($vuc_region_id, $vuc_subregion_id, $municipality_id, $name, $party, $subregion_name_2017, $number, $occupation, $age)
     {
         $statement = $this->getConnection()->prepare("
             INSERT INTO 
@@ -38,7 +39,10 @@ class ImportVuc2017Command extends ContainerAwareCommand
                 :party,
                 :nr_of_votes,
                 :elected,
-                :subregion_name_2017
+                :subregion_name_2017,
+                :number,
+                :occupation,
+                :age
             )
         ");
         $statement->bindValue(':vuc_region_id', $vuc_region_id);
@@ -49,6 +53,9 @@ class ImportVuc2017Command extends ContainerAwareCommand
         $statement->bindValue(':nr_of_votes', 0);
         $statement->bindValue(':elected', false);
         $statement->bindValue(':subregion_name_2017', $subregion_name_2017);
+        $statement->bindValue(':number', $number);
+        $statement->bindValue(':occupation', $occupation);
+        $statement->bindValue(':age', $age);
         $statement->execute();
     }
 
@@ -64,9 +71,9 @@ class ImportVuc2017Command extends ContainerAwareCommand
         {
             $first_column = trim($row[0]);
             $second_column = trim($row[1]);
-            $third_column = trim($row[2]);
+            $municipality_column = trim($row[7]);
 
-            if (empty($first_column) || empty($second_column) || empty($third_column))
+            if (empty($first_column) || empty($second_column) || empty($municipality_column))
             {
                 continue;
             }
@@ -76,12 +83,12 @@ class ImportVuc2017Command extends ContainerAwareCommand
 
             if (!empty($vuc_subregion_id))
             {
-                $municipality_id = $this->findMunicipality2017IdByNameAndSubregion2017Id($third_column, $vuc_subregion_id);
+                $municipality_id = $this->findMunicipality2017IdByNameAndSubregion2017Id($municipality_column, $vuc_subregion_id);
             }
 
             if (empty($municipality_id))
             {
-                list($municipality_id, $vuc_subregion_id) = $this->findMunicipality2017AndSubregion2017IdIdByMunicipality2017NameAndRegionId($third_column, $vuc_region_id);
+                list($municipality_id, $vuc_subregion_id) = $this->findMunicipality2017AndSubregion2017IdIdByMunicipality2017NameAndRegionId($municipality_column, $vuc_region_id);
 
                 if (empty($vuc_subregion_id))
                 {
@@ -90,7 +97,7 @@ class ImportVuc2017Command extends ContainerAwareCommand
 
                 if (empty($municipality_id))
                 {
-                    throw new Exception('Municipality wasn\'t found: ' . $first_column . ' - ' . $second_column . ' - ' . $third_column);
+                    throw new Exception('Municipality wasn\'t found: ' . $first_column . ' - ' . $second_column . ' - ' . $municipality_column);
                 }
             }
 

@@ -38,7 +38,7 @@
 
         <p>
             Chceš ísť voliť, ale nevieš koho?
-            Musíš si spraviť domácu úlohu a vybrať si kandidátky a kandidátov, ktorých zakrúžkuješ.
+            Sprav si domácu úlohu a vyber si kandidátky a kandidátov, ktorých zakrúžkuješ.
             Ak naozaj nemáš predstavu o tom koho zvoliť, tak zváž kandidátov, ktorí majú najväčšiu šancu na zvolenie
             a kandidujú za stranu alebo koalíciu, ktorá je tvojmu srdcu najbližšia.
             Daj si čas a pogoogli niečo o kandidátoch a rozhodni sa zodpovedne.
@@ -69,7 +69,7 @@
                             </li>
                             {% for year, past_election in candidate.past_elections %}
                                 <li>
-                                    {{ year }}: {{ past_election.party }}, {{ past_election.nr_of_votes }} krúžkov ({{ past_election.elected ? "ne" : '' }}získal/a mandát)
+                                    {{ year }}: {{ past_election.party }}, {{ past_election.nr_of_votes }} krúžkov ({{ past_election.elected ? "" : 'ne' }}získal/a mandát)
                                 </li>
                             {% endfor %}
                         </ul>

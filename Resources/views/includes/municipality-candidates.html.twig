@@ -46,7 +46,10 @@
 
         <p class="nr-of-representatives-info">
             V tvojom volebnom obvode môžeš zakrúžkovať {{ (nr_of_representatives == 1 ? '<strong>jedného</strong> kandidáta' : ('<strong>' ~ nr_of_representatives ~ '</strong> kandidátov'))|raw }}.
-            <br> Neboj sa použiť všetky krúžky.
+
+            {% if nr_of_representatives > 1 %}
+                <br> Neboj sa použiť všetky krúžky.
+            {% endif %}
         </p>
 
         <div class="candidates">

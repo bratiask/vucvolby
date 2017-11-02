@@ -215,7 +215,7 @@ class GenerateMunicipalityCandidatesContentCommand extends ContainerAwareCommand
                     AND 
                 party != 'Slovenská ľudová strana (SĽS)'
             ORDER BY
-                nr_of_votes");
+                number");
 
         $statement->bindValue(':vuc_subregion_id', $vuc_subregion_id);
         $statement->execute();

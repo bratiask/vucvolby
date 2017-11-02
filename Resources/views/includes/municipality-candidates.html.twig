@@ -47,8 +47,14 @@
         <p class="nr-of-representatives-info">
             V tvojom volebnom obvode môžeš zakrúžkovať {{ (nr_of_representatives == 1 ? '<strong>jedného</strong> kandidáta' : ('<strong>' ~ nr_of_representatives ~ '</strong> kandidátov'))|raw }}.
 
-            {% if nr_of_representatives > 1 %}
-                <br> Neboj sa použiť všetky krúžky.
+            {% if nr_of_representatives == 1 %}
+                <br> Zatni zuby a použi jeden krúžok.
+            {% elseif nr_of_representatives == 2 %}
+                <br> Zatni zuby a použi obidva krúžky.
+            {% elseif nr_of_representatives < 5 %}
+                <br> Zatni zuby a použi všetky {{ nr_of_representatives }} krúžky.
+            {% else %}
+                <br> Zatni zuby a použi všetkých {{ nr_of_representatives }} krúžkov.
             {% endif %}
         </p>
 

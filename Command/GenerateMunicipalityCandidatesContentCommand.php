@@ -216,6 +216,8 @@ class GenerateMunicipalityCandidatesContentCommand extends ContainerAwareCommand
                 party != 'Slovenská ľudová strana (SĽS)'
                     AND 
                 (is_lsns IS NULL OR is_lsns != 1)
+                    AND 
+                (is_canceled IS NULL OR is_canceled != 1)
             ORDER BY
                 number");
 

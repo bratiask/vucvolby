@@ -21,6 +21,7 @@
       text-align: center;
       overflow: hidden;
 
+      .kralikm,
       .kgalikm {
         display: inline-block;
         position: relative;
@@ -29,6 +30,7 @@
         margin-bottom: -5%;
       }
 
+      .kralik,
       .kgalik {
         display: block;
         position: absolute;
@@ -42,6 +44,59 @@
           right: 0;
         }
       }
+    }
+  }
+
+  &.s-header-map {
+    text-align: left !important;
+
+    position: absolute;
+    z-index: 100;
+    right: 10px;
+    width: 200px;
+    height: 200px;
+
+    @include media-breakpoint-down(md) {
+      width: 150px;
+      height: 150px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      width: 100px;
+      height: 100px;
+    }
+
+    border-radius: 50%;
+    top: 10px;
+
+    .image-wrapper {
+      max-width: 200px;
+    }
+
+    &.s {
+      @include padding(20, 20);
+    }
+  }
+
+  a.fb-share {
+    font-size: 24px;
+    max-width: none;
+    width: auto;
+    padding: 5px 10px;
+    box-shadow: none;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 140px;
+
+    @include media-breakpoint-down(md) {
+      top: 100px;
+      font-size: 18px;
+    }
+
+    @include media-breakpoint-down(sm) {
+      top: 65px;
+      font-size: 12px;
     }
   }
 }

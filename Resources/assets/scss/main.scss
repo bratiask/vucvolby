@@ -183,4 +183,20 @@ a.fb-share {
       background-color: rgba(255, 255, 255, 0.1);
     }
   }
+
+  .candidates {
+    a {
+      z-index: 1000;
+      font-size: 18px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border: none;
+      position: fixed;
+      right: -240px;
+      top: -90px;
+      transform: rotate(45deg);
+      width: 500px;
+      padding-top: 100px;
+      height: 170px;
+    }
+  }
 }

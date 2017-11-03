@@ -165,3 +165,22 @@ a.fb-share {
     background-color: lighten($facebook-blue, 10);
   }
 }
+
+.links {
+  a {
+    display: inline-block;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.05);
+    max-width: 500px;
+    margin: 30px 15px;
+    padding: 15px 30px;
+    border-radius: 5px;
+    @include font-size(24);
+
+    &:hover {
+      text-decoration: none;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+}

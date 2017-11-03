@@ -7659,3 +7659,26 @@ a.fb-share {
   a.fb-share:hover {
     text-decoration: none;
     background-color: #4c70ba; }
+
+.links a {
+  display: inline-block;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.05);
+  max-width: 500px;
+  margin: 30px 15px;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 24px; }
+  @media (max-width: 1199px) {
+    .links a {
+      font-size: 19.2px; } }
+  @media (max-width: 991px) {
+    .links a {
+      font-size: 18px; } }
+  @media (max-width: 767px) {
+    .links a {
+      font-size: 18px; } }
+  .links a:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.1); }

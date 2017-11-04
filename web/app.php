@@ -32,6 +32,14 @@ $app->get('/koho-volit', function () use ($container, $app) {
 
     return $command->getHtml();
 });
+$app->get('/v', function () use ($container, $app) {
+    /** @var GenerateIndexContentCommand $command */
+    $command = $container->get('command.ImportLiveResults2017');
+    $command->setContainer($container);
+    $command->setTwigEnvironment($app['twig']);
+
+    return $command->getHtml();
+});
 
 $app->get('/', function () use ($container, $app) {
     /** @var GenerateIndexContentCommand $command */

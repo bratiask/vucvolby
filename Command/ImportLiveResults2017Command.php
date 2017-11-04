@@ -90,22 +90,25 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
         $fs->remove(glob($base_dir . 'data.json'));
         $fs->dumpFile($base_dir . 'data.json', json_encode($regions));
 
-        $regions = json_decode(file_get_contents($base_dir . 'data.json'), true);
-
-        print_r($regions);
-
         $this->setTwigEnvironment($this->container->get('twig'));
 
         $fs = new Filesystem();
         $fs->remove(glob($base_dir . 'index.html'));
 
         $fs->dumpFile($base_dir . 'index.html',
-            $this->twig->render('results.html.twig', array('regions' => $regions))
+            $this->twig->render('results.html.twig', array('regions' => $this->getHTML()))
         );
     }
 
     public function setTwigEnvironment(Twig_Environment $twig)
     {
         $this->twig = $twig;
+    }
+
+    public function getHTML()
+    {
+        $base_dir = __DIR__ . '/../web/vysledky/';
+        $regions = json_decode(file_get_contents($base_dir . 'data.json'), true);
+        return $this->twig->render('results.html.twig', array('regions' => $regions));
     }
 }

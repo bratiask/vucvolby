@@ -67,5 +67,9 @@
         <service id="command.ImportMunicipalities2017" class="\bratiask\VucVolby\Command\ImportMunicipalities2017Command">
             <tag name="command" />
         </service>
+
+        <service id="command.ImportLiveResults2017" class="\bratiask\VucVolby\Command\ImportLiveResults2017Command">
+            <tag name="command" />
+        </service>
     </services>
 </container>

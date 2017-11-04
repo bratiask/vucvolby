@@ -96,9 +96,6 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
 
         $this->setTwigEnvironment($this->container->get('twig'));
 
-        $statement = $this->getConnection()->prepare("SELECT municipality_id FROM municipalities");
-        $statement->execute();
-
         $fs = new Filesystem();
         $fs->remove(glob($base_dir . 'index.html'));
 

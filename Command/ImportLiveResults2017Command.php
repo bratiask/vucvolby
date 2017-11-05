@@ -95,9 +95,7 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
         $fs = new Filesystem();
         $fs->remove(glob($base_dir . 'index.html'));
 
-        $fs->dumpFile($base_dir . 'index.html',
-            $this->twig->render('results.html.twig', array('regions' => $this->getHTML()))
-        );
+        $fs->dumpFile($base_dir . 'index.html', $this->getHTML());
     }
 
     public function setTwigEnvironment(Twig_Environment $twig)

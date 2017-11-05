@@ -94,7 +94,7 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
             });
 
             $people_above_line = array_slice($people, 0, $subregion['nr_of_representatives']);
-            $people_under_line = array_slice($people, $subregion['nr_of_representatives'], 3);
+            $people_under_line = array_slice($people, $subregion['nr_of_representatives']);
 
             $regions[$subregion['region_name']]['max_nr_of_votes'] += $kgalici_max_nr_of_votes;
             $regions[$subregion['region_name']]['subregions'][$subregion['subregion_name']] = array(

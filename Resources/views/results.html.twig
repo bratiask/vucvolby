@@ -35,7 +35,7 @@
                 </tr>
                 {% for sr_name, sr in region['subregions'] %}
 
-                    {% for person in sr %}
+                    {% for person in sr.people %}
                         <tr>
                             <td>
                                 {{ person.name }}
@@ -50,6 +50,25 @@
                                 {{ person.nr_of_votes_relative }}%
                             </td>
                             <td>
+                                {{ sr_name }}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    {% for person in sr.people_under_line %}
+                        <tr>
+                            <td style="background-color: #ffc3cb;">
+                                {{ person.name }}
+                            </td>
+                            <td style="background-color: #ffc3cb;">
+                                {{ person.party }}
+                            </td>
+                            <td style="background-color: #ffc3cb;">
+                                {{ person.nr_of_votes }}
+                            </td>
+                            <td style="background-color: #ffc3cb;">
+                                {{ person.nr_of_votes_relative }}%
+                            </td>
+                            <td style="background-color: #ffc3cb;">
                                 {{ sr_name }}
                             </td>
                         </tr>

@@ -82,9 +82,13 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
                 return $person1['nr_of_votes'] > $person2['nr_of_votes'] ? -1 : 1;
             });
 
-            $people = array_slice($people, 0, $subregion['nr_of_representatives']);
+            $people_above_line = array_slice($people, 0, $subregion['nr_of_representatives']);
+            $people_under_line = array_slice($people, $subregion['nr_of_representatives'], 3);
 
-            $regions[$subregion['region_name']]['subregions'][$subregion['subregion_name']] = $people;
+            $regions[$subregion['region_name']]['subregions'][$subregion['subregion_name']] = array(
+                'people' => $people_above_line,
+                'people_under_line' => $people_under_line
+            );
         }
 
         $fs->remove(glob($base_dir . 'data.json'));
@@ -113,7 +117,7 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
         {
             foreach ($region['subregions'] as $people)
             {
-                foreach ($people as $person)
+                foreach ($people['people'] as $person)
                 {
                     if (mb_strpos($person['party'], 'ĽS Naše') === 0 || mb_strpos($person['party'], 'ĽS Pevnosť') === 0)
                     {

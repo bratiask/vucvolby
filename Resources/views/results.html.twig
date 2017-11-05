@@ -27,10 +27,12 @@
                         </th>
                     </tr>
                 </thead>
+            {% set max_nr_of_votes = 0 %}
             {% for region_name, region in regions %}
+                {% set max_nr_of_votes = max_nr_of_votes + region.max_nr_of_votes %}
                 <tr>
                     <th colspan="5">
-                        {{ region_name }}
+                        {{ region_name }} (minimálna podpora ĽSNS: {{ region.max_nr_of_votes }} ľudí)
                     </th>
                 </tr>
                 {% for sr_name, sr in region['subregions'] %}
@@ -77,6 +79,10 @@
 
             {% endfor %}
             </table>
+
+            <h2>
+                Minimálna podpora ĽSNS: {{ max_nr_of_votes }}
+            </h2>
         </div>
     </section>
 {% endblock %}

@@ -60,6 +60,7 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
             {
                 $regions[$subregion['region_name']] = array(
                     'name' => $subregion['region_name'],
+                    'max_nr_of_votes' => 0,
                     'subregions' => array(),
                 );
             }
@@ -68,14 +69,24 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
 
             $people = array();
 
+            $kgalici_max_nr_of_votes = 0;
+
             foreach (json_decode($raw_content, true) as $record)
             {
+                $party = $record['C04'];
+                $nr_of_votes = (int) $this->n($record['C05']);
+
                 $people[] = array(
                     'name' => $record['C02'] . ' ' . $record['C03'],
-                    'party' => $record['C04'],
-                    'nr_of_votes' => (int) $this->n($record['C05']),
+                    'party' => $party,
+                    'nr_of_votes' => $nr_of_votes,
                     'nr_of_votes_relative' => str_replace(',', '.', $record['C06']),
                 );
+
+                if (mb_strpos($party, 'ĽS Naše') === 0 || mb_strpos($party, 'ĽS Pevnosť') === 0)
+                {
+                    $kgalici_max_nr_of_votes = max($kgalici_max_nr_of_votes, $nr_of_votes);
+                }
             }
 
             uasort($people, function($person1, $person2) {
@@ -85,6 +96,7 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
             $people_above_line = array_slice($people, 0, $subregion['nr_of_representatives']);
             $people_under_line = array_slice($people, $subregion['nr_of_representatives'], 3);
 
+            $regions[$subregion['region_name']]['max_nr_of_votes'] += $kgalici_max_nr_of_votes;
             $regions[$subregion['region_name']]['subregions'][$subregion['subregion_name']] = array(
                 'people' => $people_above_line,
                 'people_under_line' => $people_under_line

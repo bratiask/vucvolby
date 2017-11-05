@@ -107,6 +107,25 @@ class ImportLiveResults2017Command extends ContainerAwareCommand
     {
         $base_dir = __DIR__ . '/../web/vysledky/';
         $regions = json_decode(file_get_contents($base_dir . 'data.json'), true);
-        return $this->twig->render('results.html.twig', array('regions' => $regions));
+        $kgalici_count = 0;
+
+        foreach ($regions as $region)
+        {
+            foreach ($region['subregions'] as $people)
+            {
+                foreach ($people as $person)
+                {
+                    if (mb_strpos($person['party'], 'ĽS Naše') === 0 || mb_strpos($person['party'], 'ĽS Pevnosť') === 0)
+                    {
+                        $kgalici_count++;
+                    }
+                }
+            }
+        }
+
+        return $this->twig->render('results.html.twig', array(
+            'regions' => $regions,
+            'kgalici_count' => $kgalici_count
+        ));
     }
 }

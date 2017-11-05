@@ -2,19 +2,11 @@
 {% import _self as m %}
 
 {% block content %}
-    <header class="s s-list-header">
-        <div class="c">
-            <div class="image-wrapper">
-                <div class="image">
-                    <img src="/images/stop.svg">
-                </div>
-            </div>
-
-            <h1>Zvolení poslanci</h1>
-        </div>
-    </header>
     <section class="s s-call-to-action">
         <div class="c">
+            <h1>Zvolení poslanci</h1>
+            <h2>Počet zvolených kgálikov: {{ kgalici_count }}</h2>
+
             <table class="table table-condensed" style="background-color: white; text-align: left;">
                 <thead>
                     <tr>
